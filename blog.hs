@@ -199,7 +199,7 @@ gitTag key = field key $ \item -> do
                then "Not Committed"
                else renderHtml $ do
                       H.a ! A.href (toValue commit) ! A.title (toValue message) $ toHtml sha
-                      H.span ! A.class_ "hash" $ do
+                      H.span ! A.class_ "hash" $
                         H.a ! A.href (toValue history) $ "*"
 
 postList
