@@ -176,7 +176,8 @@ mathCtx = field "mathjax" $ \item -> do
 
 gitTag :: String -> Context String
 gitTag key = field key $ \item -> do
-  let fp = "post/" ++ toFilePath (itemIdentifier item)
+  let fp = toFilePath (itemIdentifier item)
+  -- let fp = "post/" ++ toFilePath (itemIdentifier item)
       gitLog format =
         readProcess "git" [
           "log"
