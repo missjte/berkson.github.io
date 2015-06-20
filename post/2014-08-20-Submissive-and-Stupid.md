@@ -43,6 +43,6 @@ I had planned to write some romanticized depiction of who I was, how my life is,
 
 I don't have a *bad life*, but I feel like I'm a *bad person*.
 
-I'm not the person I *want to be*, but I'm with the person I *was meant to be with*.
+I'm not the person I *want to be*, but I'm with the person I *was meant to be with*.  She is my everything.
 
 Honestly... **I just want to be her good boy.**
