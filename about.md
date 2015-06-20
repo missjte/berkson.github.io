@@ -29,6 +29,6 @@ The name **Prick Your Finger** does not make much sense or have any context in r
 [Sleeping Beauty]: http://en.wikipedia.org/wiki/Sleeping_Beauty_(1959_film)
 
 [Eiren]: #
-[Berkson]: ../posts/submissive-and-stupid/
+[Berkson]: ../post/2015-06-11-People-I-know-scare-me.html
 
-[KISS]: ../KISS/
+[KISS]: ../KISS.html

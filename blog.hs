@@ -44,7 +44,7 @@ main = hakyll $ do
     compile compressCssCompiler
 
   -- Add some default pages
-  match (fromList ["about.md"]) $ do
+  match (fromList ["about.md", "KISS.md"]) $ do
     route   $ setExtension "html"
     compile $ pandocCompiler
       >>= loadAndApplyTemplate "template/default.html" (mconcat
