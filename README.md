@@ -10,12 +10,11 @@ To compile, do:
 ```
 cabal sandbox init
 cabal install cabal-install
-cabal install --only-dep
-cabal build
-```
+cabal install --only-dep```
 
-. This will install Hakyll, Clay, and other dependencies.
+This will install Hakyll and other dependencies.
 Now just run
 
 ```
-make
+make install
+```

@@ -43,13 +43,6 @@ main = hakyll $ do
     route   idRoute
     compile compressCssCompiler
 
-  -- Add Clay-based css
-  match "css/*.hs" $ do
-    route $ setExtension "css"
-    compile $ getResourceString
-      >>= withItemBody
-        (unixFilter "cabal" ["exec", "runghc"])
-
   -- Add some default pages
   match (fromList ["about.md"]) $ do
     route   $ setExtension "html"

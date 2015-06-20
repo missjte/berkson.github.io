@@ -31,15 +31,3 @@ executable blog
     , process      >= 1.2.3.0
   -- hs-source-dirs:
   default-language: Haskell2010
-
-executable base
-  main-is: css/base.hs
-  ghc-options: -Wall -Werror -fno-warn-tabs
-  -- other-modules:
-  other-extensions: OverloadedStrings
-  build-depends:
-      base >= 4.7
-    , text >= 1.1.1.3
-    , clay >= 0.8.0.1
-  -- hs-source-dirs:
-  default-language: Haskell2010
