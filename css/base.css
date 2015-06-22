@@ -5,7 +5,8 @@ body {
   width: 60%;
   max-width: 960px;
   margin: 0 auto;
-  background-color: #FFFFFF;
+/*  background-color: #FFFFFF; */
+  background-image: url("/img/confectionary.png");
   color: #4A4A4A;
 
   text-rendering: optimizeLegibility;
@@ -19,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #CB004A;
+  text-decoration: none;
 }
 
 a {
@@ -98,7 +100,27 @@ footer p {
   margin: 0;
 }
 
-/* Media Queries */
+code {
+  font-size: 0.75em;
+  margin: 0 auto;
+  letter-spacing: 1px;
+  padding: 2px 4px 2px 4px;
+  color: #d9d9d9;
+  border: 1px solid rgba(217, 217, 217, 0.7);
+  border-radius: 2px;
+  vertical-align: middle;
+}
+
+code:hover {
+  color: #8ab9d1;
+  border-color: rgba(138, 185, 209, 0.7);
+  transition: all 0.2s ease;
+}
+
+code a:link {
+  color: inherit;
+}
+
 @media screen and (max-width: 700px) {
   body {
    width: 95%;

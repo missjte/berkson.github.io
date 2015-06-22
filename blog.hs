@@ -1,10 +1,8 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import qualified Data.Map.Lazy                   as M
 import           Hakyll
 import           System.FilePath.Posix
-import           Text.Pandoc                     (HTMLMathMethod (MathJax),
-                                                  WriterOptions (..))
+import           Text.Pandoc                     (WriterOptions (..))
 import           Text.Pandoc.Definition
 
 import           System.Process
@@ -33,7 +31,6 @@ main = hakyll $ do
           ])
         >>= loadAndApplyTemplate "template/default.html" (mconcat
           [ constField "title" title
-          , mathCtx
           , defaultContext
           ])
         >>= relativizeUrls
@@ -48,8 +45,7 @@ main = hakyll $ do
     route   $ setExtension "html"
     compile $ pandocCompiler
       >>= loadAndApplyTemplate "template/default.html" (mconcat
-        [ mathCtx
-        , defaultContext
+        [ defaultContext
         ])
       >>= relativizeUrls
 
@@ -73,8 +69,7 @@ main = hakyll $ do
       >>= loadAndApplyTemplate "template/post.html"    (tagsCtx tags)
       >>= saveSnapshot "content"
       >>= loadAndApplyTemplate "template/default.html" (mconcat
-        [ mathCtx
-        , tagsCtx tags
+        [ tagsCtx tags
         ])
       >>= relativizeUrls
 
@@ -89,8 +84,7 @@ main = hakyll $ do
         >>= loadAndApplyTemplate "template/archive.html"
           (archiveCtx tags)
         >>= loadAndApplyTemplate "template/default.html" (mconcat
-          [ mathCtx
-          , archiveCtx tags
+          [ archiveCtx tags
           ])
         >>= relativizeUrls
 
@@ -104,8 +98,7 @@ main = hakyll $ do
       makeItem list
         >>= loadAndApplyTemplate "template/index.html" (homeCtx list)
         >>= loadAndApplyTemplate "template/default.html" (mconcat
-          [ mathCtx
-          , homeCtx list
+          [ homeCtx list
           ])
         >>= relativizeUrls
 
@@ -126,7 +119,15 @@ main = hakyll $ do
   where
   pandocOptions :: WriterOptions
   pandocOptions = defaultHakyllWriterOptions
-    {writerHTMLMathMethod = MathJax ""}
+
+atomFeedConf :: FeedConfiguration
+atomFeedConf = FeedConfiguration
+  { feedTitle = "Prick Your Finger"
+  , feedDescription = "The latest blog posts from Eiren &amp; Berkson!"
+  , feedAuthorName  = "Eiren &amp; Berkson"
+  , feedAuthorEmail = "us@prickyourfinger.org"
+  , feedRoot = "http://www.prickyourfinger.org"
+  }
 
 postCtx :: Context String
 postCtx = mconcat
@@ -156,21 +157,9 @@ homeCtx list = mconcat
   , defaultContext
   ]
 
-mathCtx :: Context a
-mathCtx = field "mathjax" $ \item -> do
-  metadata <- getMetadata $ itemIdentifier item
-  return $ if M.member "mathjax" metadata then
-    concat
-      [ "<script src=\""
-      , "http://cdn.mathjax.org/mathjax/latest/MathJax.js"
-      , "?config=TeX-AMS-MML_HTMLorMML\"></script>"
-      ]
-    else ""
-
 gitTag :: String -> Context String
 gitTag key = field key $ \item -> do
   let fp = toFilePath (itemIdentifier item)
-  -- let fp = "post/" ++ toFilePath (itemIdentifier item)
       gitLog format =
         readProcess "git" [
           "log"
@@ -191,9 +180,8 @@ gitTag key = field key $ \item -> do
     return $ if null sha
                then "Not Committed"
                else renderHtml $ do
-                      H.a ! A.href (toValue commit) ! A.title (toValue message) $ toHtml sha
-                      H.span ! A.class_ "hash" $
-                        H.a ! A.href (toValue history) $ "*"
+                      H.a ! A.href (toValue commit) ! A.class_ "sha" ! A.title (toValue message) $ toHtml sha
+                      H.span ! A.class_ "sha" $ H.a ! A.href (toValue history) $ "*"
 
 postList
   :: Tags
@@ -262,15 +250,6 @@ cbExpandRawInput block = case block of
   maybeBullets xss = case head xss of
     ((True, _):_) -> concatMap (map snd) xss
     _ -> [BulletList $ map (map snd) xss]
-
-atomFeedConf :: FeedConfiguration
-atomFeedConf = FeedConfiguration
-  { feedTitle = "Prick Your Finger"
-  , feedDescription = "The latest blog posts from Eiren & Berkson!"
-  , feedAuthorName  = "Eiren & Berkson"
-  , feedAuthorEmail = "us@prickyourfinger.org"
-  , feedRoot = "http://www.prickyourfinger.org"
-  }
 
 dquote :: String -> String
 dquote str = "\"" ++ str ++ "\""

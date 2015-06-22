@@ -3,7 +3,7 @@ title: Submissive and Stupid
 tags: berkson, introduction, reflection, stupid submissive
 ---
 
-**My name is Berkson**, and I struggle, and have struggled with writing for the last ten years of my life
+**My name is Berkson**, and I struggle, and have struggled with writing for the last ten years of my life.
 
 I've made countless websites, wrote hundreds of rough drafts, sought and given advice on numerous forums, mail groups, blogs, comment systems, text messages, and even games... and I still struggle making myself write... something that I love to do, but honestly, *that isn't my only problem*.
 

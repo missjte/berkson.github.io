@@ -1,5 +1,5 @@
 OBJ = dist/build/blog/blog-tmp/Main.o dist/build/base/base-tmp/Main.o
-all: $(OBJ)
+all:
 	cabal build
 	cp dist/build/blog/blog .
 	./deploy.sh deploy
