@@ -32,3 +32,7 @@ The name **Prick Your Finger** does not make much sense or have any context in r
 [Berkson]: ../post/2015-06-11-People-I-know-scare-me.html
 
 [KISS]: ../KISS.html
+
+
+## This site looks weird...
+It was generated using shamelessly stolen code from other sites using Hakyll!

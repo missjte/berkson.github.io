@@ -1,6 +1,6 @@
 ---
 title: Submissive and Stupid
-tags: berkson, introduction, reflection, stupid submissive
+tags: berkson, reflection, introduction, stupid submissive
 ---
 
 **My name is Berkson**, and I struggle, and have struggled with writing for the last ten years of my life.
@@ -34,8 +34,7 @@ This is my attempt to hold myself accountable, to encompass everything in my lif
 10.  I am not vain, judgmental, or egotistical.
       * I am a selfish lover.
       * I can be quite rude.
-11.  I am fairly decent with all things electronic.
-12.  I thoroughly enjoy margaritas.
+11.  I am amazing with all things electronic.
 
 ...And many more fallacies, as well as the occasional strength, to come.
 
