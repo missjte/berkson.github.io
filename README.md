@@ -10,7 +10,8 @@ To compile, do:
 ```
 cabal sandbox init
 cabal install cabal-install
-cabal install --only-dep```
+cabal install --only-dep
+```
 
 This will install Hakyll and other dependencies.
 Now just run

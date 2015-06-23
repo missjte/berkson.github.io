@@ -5,7 +5,6 @@ body {
   width: 60%;
   max-width: 960px;
   margin: 0 auto;
-/*  background-color: #FFFFFF; */
   background-image: url("/img/confectionary.png");
   color: #4A4A4A;
 
@@ -45,12 +44,9 @@ hr {
   color: #CB004A;
 }
 
-pre, code {
+pre {
   font-size: 0.90em;
   font-family: Menlo, monospace;
-}
-
-pre {
   overflow: auto;
 }
 
@@ -117,7 +113,7 @@ code:hover {
   transition: all 0.2s ease;
 }
 
-code a:link {
+code a:link, a:visited {
   color: inherit;
 }
 
