@@ -6,8 +6,8 @@
 blog
 
 dist/
-_site/
-_cache/
+deploy/
+generated/
 
 .cabal-sandbox/
 cabal.sandbox.config

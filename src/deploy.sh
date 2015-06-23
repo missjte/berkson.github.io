@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 REMOTE="git@github.com:berkson/berkson.github.io.git"
-DEPLOY="_site/"
+SITE="generated/deploy/out"
+DEPLOY="deploy/"
 
 info() {
   printf "  \033[00;32m+\033[0m $1\n"
@@ -61,9 +62,8 @@ deploy() {
   cd $DEPLOY
   find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
   cd ..
-  rm -rf _cache/
 
-  info "cleaned out $DEPLOY & cache"
+  info "cleaned out $DEPLOY"
   info "building site"
 
   if [[ "$OSTYPE"x == "msys"x ]]; then
@@ -72,6 +72,9 @@ deploy() {
   else
     ./blog build > /dev/null
   fi
+
+  cp -r "$SITE"/* $DEPLOY
+  info "copied $SITE into $DEPLOY"
 
   cd $DEPLOY
 

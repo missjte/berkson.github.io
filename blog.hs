@@ -1,19 +1,50 @@
 {-# LANGUAGE OverloadedStrings #-}
 
 import           Hakyll
-import           System.FilePath.Posix
+
 import           Text.Pandoc                     (WriterOptions (..))
 import           Text.Pandoc.Definition
 
 import           System.Process
+import           System.FilePath.Posix
 
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
 import qualified Text.Blaze.Html5                as H
 import qualified Text.Blaze.Html5.Attributes     as A
 
+hakyllConf :: Configuration
+hakyllConf = defaultConfiguration
+  { deployCommand = "bash src/deploy.sh deploy"
+  , providerDirectory = "provider"
+  , destinationDirectory = "generated/deploy/out"
+  , storeDirectory = "generated/deploy/cache"
+  , tmpDirectory = "generated/deploy/cache/tmp"
+  , previewHost = "0.0.0.0"
+  , previewPort = 4000
+  , ignoreFile = isIgnored
+  }
+  where
+    isIgnored path
+      | ignoreFile defaultConfiguration name = True
+      -- 4913 is a file vim creates on windows to verify
+      -- that it can indeed write to the specified path
+      | name == "4913"                         = True
+      | otherwise                              = False
+      where name = takeFileName path
+
+
+atomFeedConf :: FeedConfiguration
+atomFeedConf = FeedConfiguration
+  { feedTitle = "Prick Your Finger"
+  , feedDescription = "The latest blog posts from Eiren &amp; Berkson!"
+  , feedAuthorName  = "Eiren &amp; Berkson"
+  , feedAuthorEmail = "us@prickyourfinger.org"
+  , feedRoot = "http://www.prickyourfinger.org"
+  }
+
 main :: IO ()
-main = hakyll $ do
+main = hakyllWith hakyllConf $ do
   -- Build tags
   tags <- buildTags "post/*" (fromCapture "tag/*.html")
 
@@ -120,15 +151,6 @@ main = hakyll $ do
   pandocOptions :: WriterOptions
   pandocOptions = defaultHakyllWriterOptions
 
-atomFeedConf :: FeedConfiguration
-atomFeedConf = FeedConfiguration
-  { feedTitle = "Prick Your Finger"
-  , feedDescription = "The latest blog posts from Eiren &amp; Berkson!"
-  , feedAuthorName  = "Eiren &amp; Berkson"
-  , feedAuthorEmail = "us@prickyourfinger.org"
-  , feedRoot = "http://www.prickyourfinger.org"
-  }
-
 postCtx :: Context String
 postCtx = mconcat
   [ dateField "date" "%Y-%m-%d"
@@ -159,7 +181,7 @@ homeCtx list = mconcat
 
 gitTag :: String -> Context String
 gitTag key = field key $ \item -> do
-  let fp = toFilePath (itemIdentifier item)
+  let fp = "provider/" ++ toFilePath (itemIdentifier item)
       gitLog format =
         readProcess "git" [
           "log"
