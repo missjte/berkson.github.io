@@ -16,7 +16,7 @@ import qualified Text.Blaze.Html5.Attributes     as A
 hakyllConf :: Configuration
 hakyllConf = defaultConfiguration
   { deployCommand = "bash src/deploy.sh deploy"
-  , providerDirectory = "provider"
+  , providerDirectory = "journal"
   , destinationDirectory = "generated/deploy/out"
   , storeDirectory = "generated/deploy/cache"
   , tmpDirectory = "generated/deploy/cache/tmp"
@@ -181,7 +181,7 @@ homeCtx list = mconcat
 
 gitTag :: String -> Context String
 gitTag key = field key $ \item -> do
-  let fp = "provider/" ++ toFilePath (itemIdentifier item)
+  let fp = "journal/" ++ toFilePath (itemIdentifier item)
       gitLog format =
         readProcess "git" [
           "log"
@@ -205,8 +205,7 @@ gitTag key = field key $ \item -> do
                       H.a ! A.href (toValue commit) ! A.class_ "sha" ! A.title (toValue message) $ toHtml sha
                       H.span ! A.class_ "sha" $ H.a ! A.href (toValue history) $ "*"
 
-postList
-  :: Tags
+postList :: Tags
   -> Pattern
   -> ([Item String] -> Compiler [Item String])
   -> Compiler String

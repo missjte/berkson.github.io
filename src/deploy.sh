@@ -30,8 +30,6 @@ git_check() {
 }
 
 setup() {
-  dir_check
-
   rm -rf $DEPLOY
   mkdir $DEPLOY
 
@@ -60,7 +58,7 @@ deploy() {
   # clean out deploy & cache and move in the new files
 
   cd $DEPLOY
-  find . -path ./.git -prune -o -exec rm -rf {} \; 2> /dev/null
+  find . -path ./.git -prune -o -exec rm -rf {} \; > /dev/null
   cd ..
 
   info "cleaned out $DEPLOY"

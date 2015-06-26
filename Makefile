@@ -1,17 +1,18 @@
 all:
 	cabal build
-	cp dist/build/blog/blog .
+	rm -r dist/
 	./src/deploy.sh deploy
 
 install:
 	cabal build
-	cp dist/build/blog/blog .
+	rm -r dist/
 	./src/deploy.sh setup
 
 nosync:
 	cabal build
-	cp dist/build/blog/blog .
+	rm -r dist/
 
 clean:
-	$(RM) blog
-	find -type f -iregex ".+\.\(o\|hi\|hp\|mix\|ps\|tix\)" -exec rm -v {} \;
+	-cabal clean
+	-rm -r generated/
+	-rm -r deploy/

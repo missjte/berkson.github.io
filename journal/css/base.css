@@ -37,11 +37,23 @@ blockquote {
 }
 
 hr {
-  width: 90%;
+  padding: 0;
   border: none;
-  height: 1px;
-  background-color: #CB004A;
+  border-top: medium double #7E002F;
+  color: #7E002F;
+  text-align: center;
+}
+
+hr:after {
+  content: '\002665';
+  display: inline-block;
+  position: relative;
+  top: -15px;
+  padding: 0 10px;
+  background: #f0f0f0;
   color: #CB004A;
+  font-size: 18px;
+
 }
 
 pre {
