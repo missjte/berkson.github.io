@@ -1,7 +1,7 @@
 all:
 	cabal build
 	rm -r dist/
-	./src/deploy.sh deploy
+	./blog deploy
 
 install:
 	cabal build
@@ -11,8 +11,3 @@ install:
 nosync:
 	cabal build
 	rm -r dist/
-
-clean:
-	-cabal clean
-	-rm -r generated/
-	-rm -r deploy/
