@@ -1,6 +1,6 @@
 ---
 title: Submissive and Stupid
-tags: berkson, reflection, introduction, stupid submissive
+tags: berkson, reflection, introduction, stupid submissive, first year
 ---
 
 **My name is Berkson**, and I struggle, and have struggled with writing for the last ten years of my life.
