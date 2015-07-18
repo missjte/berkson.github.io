@@ -2,11 +2,13 @@
 
 import           Hakyll
 
-import           Text.Pandoc                     (WriterOptions (..))
-import           Text.Pandoc.Definition
-
-import           System.Process
 import           System.FilePath.Posix
+import           System.Process
+
+import           Control.Monad                   (forM)
+import           Data.Maybe                      (catMaybes)
+import           Data.List                       (intersperse)
+
 
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
@@ -55,15 +57,8 @@ main = hakyllWith hakyllConf $ do
     compile $ do
       list <- postList tags pattern recentFirst
       makeItem ""
-        >>= loadAndApplyTemplate "template/archive.html" (mconcat
-          [ constField "body" list
-          , archiveCtx tags
-          , defaultContext
-          ])
-        >>= loadAndApplyTemplate "template/default.html" (mconcat
-          [ constField "title" title
-          , defaultContext
-          ])
+        >>= loadAndApplyTemplate "template/archive.html" (mconcat [constField "body" list, archiveCtx tags, defaultContext])
+        >>= loadAndApplyTemplate "template/default.html" (mconcat [constField "title" title, defaultContext])
         >>= relativizeUrls
 
   -- Add raw CSS
@@ -75,16 +70,12 @@ main = hakyllWith hakyllConf $ do
   match (fromList ["about.md", "KISS.md"]) $ do
     route   $ setExtension "html"
     compile $ pandocCompiler
-      >>= loadAndApplyTemplate "template/default.html" (mconcat
-        [ defaultContext
-        ])
+      >>= loadAndApplyTemplate "template/default.html" defaultContext
       >>= relativizeUrls
 
   -- Add static content
   mapM_ (`match` (route idRoute >> compile copyFileCompiler))
     [ "CNAME"
-    -- Although not tailored to the actual deployed site itself, it still
-    -- has some rules that make it easier to git add/push new content.
     , ".gitignore"
     , "*.png"
     , "favicon.ico"
@@ -93,15 +84,10 @@ main = hakyllWith hakyllConf $ do
 
   match (fromRegex "post/[^/]+\\.(md|org)$") $ do
     route $ setExtension "html"
-    compile $ pandocCompilerWithTransformM
-      defaultHakyllReaderOptions
-      pandocOptions
-      transformer
+    compile $ pandocCompiler
       >>= loadAndApplyTemplate "template/post.html"    (tagsCtx tags)
       >>= saveSnapshot "content"
-      >>= loadAndApplyTemplate "template/default.html" (mconcat
-        [ tagsCtx tags
-        ])
+      >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
       >>= relativizeUrls
 
   create ["archive.html"] $ do
@@ -112,11 +98,8 @@ main = hakyllWith hakyllConf $ do
       itemTpl <- loadBody "template/post-item.html"
       list <- applyTemplateList itemTpl postCtx sorted
       makeItem list
-        >>= loadAndApplyTemplate "template/archive.html"
-          (archiveCtx tags)
-        >>= loadAndApplyTemplate "template/default.html" (mconcat
-          [ archiveCtx tags
-          ])
+        >>= loadAndApplyTemplate "template/archive.html" (archiveCtx tags)
+        >>= loadAndApplyTemplate "template/default.html" (archiveCtx tags)
         >>= relativizeUrls
 
   create ["index.html"] $ do
@@ -127,10 +110,8 @@ main = hakyllWith hakyllConf $ do
       itemTpl <- loadBody "template/post-item.html"
       list <- applyTemplateList itemTpl postCtx sorted
       makeItem list
-        >>= loadAndApplyTemplate "template/index.html" (homeCtx list)
-        >>= loadAndApplyTemplate "template/default.html" (mconcat
-          [ homeCtx list
-          ])
+        >>= loadAndApplyTemplate "template/index.html"   (homeCtx list)
+        >>= loadAndApplyTemplate "template/default.html" (homeCtx list)
         >>= relativizeUrls
 
   match "template/*" $ compile templateCompiler
@@ -148,27 +129,26 @@ main = hakyllWith hakyllConf $ do
         =<< loadAllSnapshots "post/*" "content"
       renderAtom atomFeedConf feedCtx posts
   where
-  pandocOptions :: WriterOptions
-  pandocOptions = defaultHakyllWriterOptions
 
 postCtx :: Context String
 postCtx = mconcat
-  [ dateField "date" "%Y-%m-%d"
+  [ dateField "date" "%d %b %Y"
   , fileNameField "filename"
   , gitTag "git"
+  , historyTag "history"
   , defaultContext
   ]
 
 archiveCtx :: Tags -> Context String
 archiveCtx tags = mconcat
   [ constField "title" "Archive"
-  , field "taglist" (\_ -> renderTagList tags)
+  , field "taglist" (\_ -> renderTagBlock tags)
   , defaultContext
   ]
 
 tagsCtx :: Tags -> Context String
 tagsCtx tags = mconcat
-  [ tagsField "prettytags" tags
+  [ tagsBlock "prettytags" tags
   , postCtx
   ]
 
@@ -178,6 +158,46 @@ homeCtx list = mconcat
   , constField "title" "Home"
   , defaultContext
   ]
+
+renderTagBlock :: Tags -> Compiler String
+renderTagBlock = renderTags makeLink unwords
+  where
+    makeLink tag url count _ _ =
+      renderHtml $ H.code ! A.class_ "tags" $ H.a ! A.href (toValue url) $ toHtml (tag ++ "(" ++ show count ++ ")")
+
+tagsBlockWith :: (Identifier -> Compiler [String])
+              -> String
+              -> Tags
+              -> Context a
+tagsBlockWith getTags' key tags = field key $ \item -> do
+    tags' <- getTags' $ itemIdentifier item
+    links <- forM tags' $ \tag -> do
+        route' <- getRoute $ tagsMakeId tags tag
+        return $ renderLink tag route'
+
+    return $ renderHtml $ mconcat $ intersperse " " $ catMaybes links
+  where
+    renderLink _   Nothing         = Nothing
+    renderLink tag (Just filePath) = Just $
+      H.code ! A.class_ "tags" $ H.a ! A.href (toValue $ toUrl filePath) $ toHtml tag
+
+tagsBlock :: String
+          -> Tags
+          -> Context a
+tagsBlock = tagsBlockWith getTags
+
+postList :: Tags
+  -> Pattern
+  -> ([Item String] -> Compiler [Item String])
+  -> Compiler String
+postList tags pattern sortFilter = do
+  posts <- sortFilter =<< loadAll pattern
+  itemTpl <- loadBody "template/post-item.html"
+  applyTemplateList itemTpl (tagsCtx tags) posts
+
+fileNameField :: String -> Context String
+fileNameField key = field key $ \item ->
+  return . toFilePath $ itemIdentifier item
 
 gitTag :: String -> Context String
 gitTag key = field key $ \item -> do
@@ -196,81 +216,15 @@ gitTag key = field key $ \item -> do
     sha     <- gitLog "%h"
     message <- gitLog "%s"
 
-    let history = "https://github.com/berkson/berkson.github.io/commits/source/" ++ fp
-        commit  = "https://github.com/berkson/berkson.github.io/commit/" ++ sha
+    let commit  = "https://github.com/berkson/berkson.github.io/commit/" ++ sha
 
     return $ if null sha
-               then "Not Committed"
-               else renderHtml $ do
-                      H.a ! A.href (toValue commit) ! A.class_ "sha" ! A.title (toValue message) $ toHtml sha
-                      H.span ! A.class_ "sha" $ H.a ! A.href (toValue history) $ "*"
+               then renderHtml $ H.code ! A.class_ "sha" $ H.string "Not Committed"
+               else renderHtml $ H.code ! A.class_ "sha" $ H.a ! A.href (toValue commit) ! A.title (toValue message) $ toHtml sha
 
-postList :: Tags
-  -> Pattern
-  -> ([Item String] -> Compiler [Item String])
-  -> Compiler String
-postList tags pattern sortFilter = do
-  posts <- sortFilter =<< loadAll pattern
-  itemTpl <- loadBody "template/post-item.html"
-  applyTemplateList itemTpl (tagsCtx tags) posts
+historyTag :: String -> Context String
+historyTag key = field key $ \item -> do
+  let fp = "journal/" ++ toFilePath (itemIdentifier item)
+  let history = "https://github.com/berkson/berkson.github.io/commits/source/" ++ fp
 
-fileNameField :: String -> Context String
-fileNameField key = field key $ \item ->
-  return . toFilePath $ itemIdentifier item
-
-transformer :: Pandoc -> Compiler Pandoc
-transformer (Pandoc m bs0) = do
-  bs1 <- mapM cbExpandRawInput bs0
-  return . Pandoc m $ concat bs1
-
-cbExpandRawInput :: Block -> Compiler [Block]
-cbExpandRawInput block = case block of
-  (BulletList xs) -> return . maybeBullets =<< mapM (mapM bList) xs
-  _ -> return [block]
-  where
-  bList :: Block -> Compiler (Bool, Block)
-  bList (Plain [Str "i", Space, Str fp]) = do
-    let
-      codeLang = case takeExtensions fp of
-        ".c" -> ["c"]
-        ".el" -> ["commonlisp"]
-        ".hs" -> ["haskell"]
-        ".rb" -> ["ruby"]
-        ".sh" -> ["bash"]
-        ".xorg.conf" -> ["xorg"]
-        _ -> []
-      httpTarget = "/code/" ++ fp
-      fn = takeFileName fp
-      attr = ("", "numberLines" : codeLang, [("input", "code/" ++ fp)])
-    raw <- unsafeCompiler . readFile $ "code/" ++ fp
-    return
-      ( True
-      ,
-          Div ("", ["code-and-raw"], [])
-          [ CodeBlock attr raw
-          , Div ("", ["raw-link"], [])
-            [ Plain
-              [ RawInline
-                "html" $
-                unwords
-                  [ "<a"
-                  , " class=\"raw\""
-                  , " href="
-                  , dquote httpTarget
-                  , " mimetype=text/plain"
-                  , ">"
-                  , fn
-                  , "</a>"
-                  ]
-              ]
-            ]
-          ]
-      )
-  bList x = return (False, x)
-  maybeBullets [] = [BulletList []]
-  maybeBullets xss = case head xss of
-    ((True, _):_) -> concatMap (map snd) xss
-    _ -> [BulletList $ map (map snd) xss]
-
-dquote :: String -> String
-dquote str = "\"" ++ str ++ "\""
+  return . renderHtml $ H.code ! A.class_ "history" $ H.a ! A.href (toValue history) $ "History"

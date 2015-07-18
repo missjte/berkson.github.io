@@ -108,6 +108,10 @@ footer p {
   margin: 0;
 }
 
+.taglist {
+  text-align: center;
+}
+
 .metadata {
   float: right;
 }
@@ -119,22 +123,34 @@ footer p {
 code {
   font-size: 0.75em;
   margin: 0 auto;
-  letter-spacing: 1px;
   padding: 2px 4px 2px 4px;
-  color: #d9d9d9;
-  border: 1px solid rgba(217, 217, 217, 0.7);
+  color: #0262A7;
+  border: 1px solid #0262A7;
   border-radius: 2px;
   vertical-align: middle;
 }
 
-code:hover {
-  color: #8ab9d1;
-  border-color: rgba(138, 185, 209, 0.7);
-  transition: all 0.2s ease;
+code.sha {
+  color: #29B544;
+  border-color: #29B544;
+}
+
+code.history {
+  color: #CB004A;
+  border-color: #CB004A;
+}
+
+code.tags a:link {
+  color: #CB004A;
+  text-decoration: none;
 }
 
 code a:link, code a:visited {
   color: inherit;
+}
+
+code.tags a:visited, code.tags a:hover {
+  color: #76002B;
 }
 
 @media screen and (max-width: 775px) {
