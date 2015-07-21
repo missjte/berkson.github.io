@@ -244,10 +244,3 @@ stripIndex url = if "index.html" `isSuffixOf` url && elem (head url) ("/." :: St
 
 deIndexUrls :: Item String -> Compiler (Item String)
 deIndexUrls item = return $ fmap (withUrls stripIndex) item
-
--- route   $ directorizeDate `composeRoutes` stripContent `composeRoutes` setExtension "html"
--- stripContent :: Routes
--- stripContent = gsubRoute "content/" $ const ""
-
--- deIndexedUrlField :: String -> Context a
--- deIndexedUrlField key = field key $ fmap (stripIndex . maybe empty toUrl) . getRoute . itemIdentifier
