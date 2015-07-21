@@ -16,23 +16,14 @@ For us, we have a lifetime of learning, teaching, and getting to know each other
 ## More About Us & Reflections:
 As time goes on and the more effort we place in to actively changing our relationship together, we hope that we can look on here and see who we are or who we were at any point in our journey, and as such, everything - including edits - will be saved as an archive.
 
-At points in our journey, posts written about ourselves will be chosen as our **reflections**, these will be used to help us better gauge where we both are at, in our own words.
-
-**As of right now, the most up to date reflections of ourselves are linked below:**
-
-* [Eiren] has not yet written her initial reflection.
-* [Berkson] as of August 20, 2014</p>
+At points in our journey, posts written about ourselves will be chosen and tagged as our **reflections**, these will be used to help us better gauge where we both are at, in our own words.
 
 ## PrickYourFinger.org?
 The name **Prick Your Finger** does not make much sense or have any context in reference to our relationship to anyone other than us, but ultimately the name is based on and in honour of Disney's original [Sleeping Beauty]'s **Maleficent**, the ***Mistress of All Evil***.
 
 [Sleeping Beauty]: http://en.wikipedia.org/wiki/Sleeping_Beauty_(1959_film)
 
-[Eiren]: #
-[Berkson]: ../post/2015-06-11-People-I-know-scare-me.html
+## How did you make your site look like this?
+This website was generated using Hakyll, an open source Haskell static site generator based on Jekyll, using code taken from the blogs of [Blaenkdenum], [BenJeffery], [listx], and [metaplasmus].
 
-[KISS]: ../KISS.html
-
-
-## This site looks weird...
-It was generated using shamelessly stolen code from other sites using Hakyll!
+The theme of this website is based on [Tom Weston-Perner]

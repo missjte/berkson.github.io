@@ -20,9 +20,9 @@ hakyllConfig :: Configuration
 hakyllConfig = defaultConfiguration
   { deployCommand = "bash src/deploy.sh deploy"
   , providerDirectory = "journal"
-  , destinationDirectory = "generated/deploy/out"
-  , storeDirectory = "generated/deploy/cache"
-  , tmpDirectory = "generated/deploy/cache/tmp"
+  , destinationDirectory = "generated/deploy"
+  , storeDirectory = "generated/cache"
+  , tmpDirectory = "generated/tmp"
   , previewHost = "0.0.0.0"
   , previewPort = 4000
   , ignoreFile = isIgnored
@@ -57,13 +57,12 @@ main = hakyllWith hakyllConfig $ do
         >>= loadAndApplyTemplate "template/archive.html" (mconcat [constField "body" list, archiveCtx tags, defaultContext])
         >>= loadAndApplyTemplate "template/default.html" (mconcat [constField "title" title, defaultContext])
         >>= relativizeUrls
+        >>= deIndexUrls
 
   -- Add static content
   mapM_ (`match` (route idRoute >> compile copyFileCompiler))
     [ "CNAME"
     , ".htaccess"
-    , ".gitignore"
-    , "*.png"
     , "favicon.ico"
     , "img/**"
     ]
@@ -79,7 +78,9 @@ main = hakyllWith hakyllConfig $ do
     compile $ pandocCompiler
       >>= loadAndApplyTemplate "template/default.html" defaultContext
       >>= relativizeUrls
+      >>= deIndexUrls
 
+  -- Add Posts
   match "posts/*" $ do
     route   $ directorizeDate `composeRoutes` setExtension "html"
     compile $ pandocCompiler
@@ -89,6 +90,7 @@ main = hakyllWith hakyllConfig $ do
       >>= relativizeUrls
       >>= deIndexUrls
 
+  -- Generate Archive
   create ["archive.html"] $ do
     route idRoute
     compile $ do
@@ -100,7 +102,9 @@ main = hakyllWith hakyllConfig $ do
         >>= loadAndApplyTemplate "template/archive.html" (archiveCtx tags)
         >>= loadAndApplyTemplate "template/default.html" (archiveCtx tags)
         >>= relativizeUrls
+        >>= deIndexUrls
 
+  -- Generate Homepage
   create ["index.html"] $ do
     route idRoute
     compile $ do
@@ -112,9 +116,9 @@ main = hakyllWith hakyllConfig $ do
         >>= loadAndApplyTemplate "template/index.html"   (homeCtx list)
         >>= loadAndApplyTemplate "template/default.html" (homeCtx list)
         >>= relativizeUrls
+        >>= deIndexUrls
 
-  match "template/*" $ compile templateCompiler
-
+  -- Generate Atom Feed
   create ["atom.xml"] $ do
     route idRoute
     compile $ do
@@ -127,6 +131,8 @@ main = hakyllWith hakyllConfig $ do
         . recentFirst
         =<< loadAllSnapshots "posts/*" "content"
       renderAtom atomConfig feedCtx posts
+
+  match "template/*" $ compile templateCompiler
   where
 
 postCtx :: Context String

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 REMOTE="git@github.com:berkson/berkson.github.io.git"
-SITE="generated/deploy/out"
+SITE="generated/deploy"
 DEPLOY="deploy/"
 
 info() {

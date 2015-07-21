@@ -6,7 +6,7 @@ import Distribution.PackageDescription as PD
 import Control.Monad (when)
 import Data.Maybe (isJust, fromJust)
 import Data.List (find, isPrefixOf)
-import System.Directory (copyFile)
+import System.Directory (copyFile, removeDirectoryRecursive)
 import System.FilePath ((</>))
 
 main :: IO ()
@@ -22,3 +22,5 @@ copyBinary args buildFlags pkgDesc buildInfo = do
 
     putStrLn $ "Copying executable '" ++ binary ++ "' to current directory..."
     copyFile (dir </> "blog" </> binary) binary
+    putStrLn "Cleaning build directory..."
+    removeDirectoryRecursive "dist"
