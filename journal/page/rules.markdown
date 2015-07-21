@@ -16,7 +16,7 @@ published: January 21, 2015
 
 1.  Berkson will always tell me the full truth.
 2.  Berkson will, environment permitting, refer to me as Mistress.
-    *   Ma'am is a suitible alternative in public.
+    *   Ma'am is a suitable alternative in public.
     *   He is not expected to refer to me with an honorific in the presence of our families or work.
 
 ### Berkson's Expectations
@@ -34,11 +34,12 @@ published: January 21, 2015
     *   His computer chair and the shoe stool are exceptions, unless he exhibits bad behaviour or abuses this privilege, in which case it will be taken away.
 
 
-## Current Commands
+## Current Command (Extra Nerd Points: **sudo** to run as a superuser.)
 
 1.  **Snap of the Fingers**
     *   Berkson will stop talking, close his mouth, and pay attention to Mistress Eiren.
-        *   Extra Nerd Points: **sudo Snap of the Fingers** to run as a superuser.
+2.  **Heel**
+    *   Berkson will immediately prostrate himself.  His nose will touch the ground, feet and hands will rest flat
 
 ## Commands-in-Training
 

@@ -22,5 +22,5 @@ copyBinary args buildFlags pkgDesc buildInfo = do
 
     putStrLn $ "Copying executable '" ++ binary ++ "' to current directory..."
     copyFile (dir </> "blog" </> binary) binary
-    putStrLn "Cleaning build directory..."
-    removeDirectoryRecursive "dist"
+--    putStrLn "Cleaning build directory..."
+--    removeDirectoryRecursive "dist"
