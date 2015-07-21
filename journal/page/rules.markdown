@@ -38,11 +38,10 @@ published: January 21, 2015
 
 1.  **Snap of the Fingers**
     *   Berkson will stop talking, close his mouth, and pay attention to Mistress Eiren.
-2.  **Heel**
-    *   Berkson will immediately prostrate himself.  His nose will touch the ground, feet and hands will rest flat
 
 ## Commands-in-Training
 
-_Not Yet Applicible!_
+1.  **Heel**
+    *   Berkson will immediately prostrate himself on his knees.  His nose will stay in contact with the ground, feet and hands will rest flat, and his eyes will remain open to stare at the floor.
 
 [Mantra]: ../page/mantra.html

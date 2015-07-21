@@ -47,10 +47,10 @@ main :: IO ()
 main = hakyllWith hakyllConfig $ do
 
   -- Build Tags
-  tags <- buildTags "posts/*" (fromCapture "tag/*.html")
+  tags <- buildTags "posts/*" (fromCapture "tags/*/index.html")
   tagsRules tags $ \tag pattern -> do
     let title = "&ldquo;" ++ tag ++ "&rdquo;"
-    route idRoute
+    route $ gsubRoute " " (const "-") `composeRoutes` setExtension "html"
     compile $ do
       list <- postList tags pattern recentFirst
       makeItem ""
@@ -74,7 +74,7 @@ main = hakyllWith hakyllConfig $ do
 
   -- Add Pages
   match "page/*" $ do
-    route   $ setExtension "html"
+    route   $ indexedPages `composeRoutes` gsubRoute "page/" (const "") `composeRoutes` setExtension "html"
     compile $ pandocCompiler
       >>= loadAndApplyTemplate "template/default.html" defaultContext
       >>= relativizeUrls
@@ -91,8 +91,8 @@ main = hakyllWith hakyllConfig $ do
       >>= deIndexUrls
 
   -- Generate Archive
-  create ["archive.html"] $ do
-    route idRoute
+  create ["archive"] $ do
+    route   $ indexedPages `composeRoutes` setExtension "html"
     compile $ do
       posts <- loadAll "posts/*"
       sorted <- recentFirst posts
@@ -123,21 +123,20 @@ main = hakyllWith hakyllConfig $ do
     route idRoute
     compile $ do
       let
-        feedCtx = mconcat
-          [ postCtx
-          , bodyField "description"
-          ]
+        feedCtx = mconcat [postCtx, bodyField "description"]
       posts <- fmap (take 10)
         . recentFirst
         =<< loadAllSnapshots "posts/*" "content"
       renderAtom atomConfig feedCtx posts
 
+  -- Generate Templates
   match "template/*" $ compile templateCompiler
+
   where
 
 postCtx :: Context String
 postCtx = mconcat
-  [ dateField "date" "%d %b %Y"
+  [ dateField "date" "%d %b %y"
   , fileNameField "filename"
   , gitTag "git"
   , historyTag "history"
@@ -147,7 +146,7 @@ postCtx = mconcat
 archiveCtx :: Tags -> Context String
 archiveCtx tags = mconcat
   [ constField "title" "Archive"
-  , dateField "date" "%d %m %Y"
+  , dateField "date" "%d %b %Y"
   , field "taglist" (\_ -> renderTagBlock tags)
   , defaultContext
   ]
@@ -244,9 +243,17 @@ directorizeDate = customRoute (directorize . toFilePath)
           intersperse "/" date ++ ["/"] ++ intersperse "-" rest
         (date, rest) = splitAt 3 $ splitOn "-" path
 
+indexedPages :: Routes
+indexedPages = customRoute (index . toFilePath)
+  where
+    index path = dirs ++ "/index" ++ ext
+      where
+        (dirs, ext) = splitExtension path
+
 stripIndex :: String -> String
 stripIndex url = if "index.html" `isSuffixOf` url && elem (head url) ("/." :: String)
-  then take (length url - 10) url else url
+  then take (length url - 10) url
+  else url
 
 deIndexUrls :: Item String -> Compiler (Item String)
 deIndexUrls item = return $ fmap (withUrls stripIndex) item

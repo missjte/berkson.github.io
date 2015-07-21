@@ -1,13 +1,13 @@
 all:
+	cabal clean
 	cabal build
-	rm -r dist/
 	./blog deploy
 
 install:
+	cabal clean
 	cabal build
-	rm -r dist/
 	./src/deploy.sh setup
 
 nosync:
+	cabal clean
 	cabal build
-	rm -r dist/
