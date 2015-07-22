@@ -44,4 +44,4 @@ published: January 21, 2015
 1.  **Heel**
     *   Berkson will immediately prostrate himself on his knees.  His nose will stay in contact with the ground, feet and hands will rest flat, and his eyes will remain open to stare at the floor.
 
-[Mantra]: ../page/mantra.html
+[Mantra]: ../mantra/

@@ -5,10 +5,6 @@ published: August 11, 2014
 
 **Eiren** is a dominant in her thirties, **Berkson** is a submissive in his twenties.  This is our journey to make it more than just that, because right now... that's all it is.
 
-**Eiren** is dominant, but isn't always **Berkson**'s dominant.
-
-**Berkson** is submissive, but isn't always **Eiren**'s submissive.
-
 We have been married for six years and are madly in love with each other, but we recognize that we both wan't more... and we recognize that it may take a lot of time for us to reach our goal.
 
 For us, we have a lifetime of learning, teaching, and getting to know each other... and although relationship is built on bonds stronger than us just being dominant or submissive... we know that we'll find what we've always wanted with each other if we push past our current boundaries.

@@ -62,10 +62,13 @@ main = hakyllWith hakyllConfig $ do
   -- Add static content
   mapM_ (`match` (route idRoute >> compile copyFileCompiler))
     [ "CNAME"
-    , ".htaccess"
     , "favicon.ico"
     , "img/**"
     ]
+
+  match "htaccess" $ do
+    route   $ constRoute ".htaccess"
+    compile   copyFileCompiler
 
   -- Add raw CSS
   match "css/*.css" $ do

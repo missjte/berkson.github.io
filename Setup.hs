@@ -18,9 +18,8 @@ copyBinary args buildFlags pkgDesc buildInfo = do
 
   when (isJust exe) $ do
     let binary = fromJust exe
-        dir = buildDir buildInfo
 
     putStrLn $ "Copying executable '" ++ binary ++ "' to current directory..."
-    copyFile (dir </> "blog" </> binary) binary
+    copyFile (buildDir buildInfo </> "blog" </> binary) binary
     putStrLn "Cleaning build directory..."
     removeDirectoryRecursive "dist"

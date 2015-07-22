@@ -1,11 +1,11 @@
 name:                   PrickYourFinger
-version:                2.1.3
+version:                2.2.0
 synopsis:               Personal journal of Eiren & Berkson
 homepage:               www.prickyourfinger.org
 license:                OtherLicense
 license-file:           LICENSE
 author:                 Eiren & Berkson
-maintainer:             berkson@prickyourfinger.org
+maintainer:             eiren.berkson@gmail.com
 copyright:              © 2014-2015 Eiren & Berkson
 category:               Web
 build-type:             Custom
