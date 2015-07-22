@@ -62,6 +62,7 @@ main = hakyllWith hakyllConfig $ do
   -- Add static content
   mapM_ (`match` (route idRoute >> compile copyFileCompiler))
     [ "CNAME"
+    , "LICENSE"
     , "favicon.ico"
     , "img/**"
     ]
