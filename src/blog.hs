@@ -61,6 +61,10 @@ main = hakyllWith hakyllConfig $ do
     route   $ gsubRoute "static/" (const "")
     compile copyFileCompiler
 
+  match "img/*" $ do
+    route   idRoute
+    compile copyFileCompiler
+
   -- Add raw CSS
   match "css/*.css" $ do
     route   idRoute
