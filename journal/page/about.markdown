@@ -20,6 +20,6 @@ The name **Prick Your Finger** does not make much sense or have any context in r
 [Sleeping Beauty]: http://en.wikipedia.org/wiki/Sleeping_Beauty_(1959_film)
 
 ## How did you make your site look like this?
-This website was generated using [Jasper Van der Jeugt](http://jaspervdj.be/)'s [Hakyll](http://jaspervdj.be/hakyll/), an open source Haskell static site generator based on [Jekyll](http://jekyllrb.com/), using code taken from the blogs of [Jorge Israel Peña](http://www.blaenkdenum.com/), [Ben Jeffrey](http://benjeffrey.com/), [Linus Arver](http://www.funloop.org/), and [Travis Brown](http://meta.plasm.us/).
+This website was generated using [Jasper Van der Jeugt](http://jaspervdj.be/)'s [Hakyll](http://jaspervdj.be/hakyll/), an open source static site generator written in [Haskell](https://www.haskell.org/) based on [Jekyll](http://jekyllrb.com/), using code taken from the blogs of [Jorge Israel Peña](http://www.blaenkdenum.com/), [Ben Jeffrey](http://benjeffrey.com/), [Linus Arver](http://www.funloop.org/), and [Travis Brown](http://meta.plasm.us/).
 
 The styling of this website is based on the blog of [Nick Charlton](https://nickcharlton.net/).

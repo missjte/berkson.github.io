@@ -36,7 +36,7 @@ atomConfig = FeedConfiguration
   { feedTitle                 = "Prick Your Finger"
   , feedDescription           = "Latest blog posts from Eiren &amp; Berkson &#64; PrickYourFinger.org!"
   , feedAuthorName            = "Eiren &amp; Berkson"
-  , feedAuthorEmail           = "us@prickyourfinger.org"
+  , feedAuthorEmail           = "eiren.berkson@gmail.com"
   , feedRoot                  = "http://www.prickyourfinger.org"
   }
 
