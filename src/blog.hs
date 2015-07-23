@@ -61,7 +61,7 @@ main = hakyllWith hakyllConfig $ do
     route   $ gsubRoute "static/" (const "")
     compile copyFileCompiler
 
-  match "img/*" $ do
+  match "images/*" $ do
     route   idRoute
     compile copyFileCompiler
 
@@ -120,10 +120,8 @@ main = hakyllWith hakyllConfig $ do
   create ["atom.xml"] $ do
     route idRoute
     compile $ do
-      let
-        feedCtx = mconcat [postCtx, bodyField "description"]
-      posts <- fmap (take 10)
-        . recentFirst
+      let feedCtx = mconcat [postCtx, bodyField "description"]
+      posts <- mapM deIndexUrls =<< fmap (take 10) . recentFirst
         =<< loadAllSnapshots "posts/*" "content"
       renderAtom atomConfig feedCtx posts
 
