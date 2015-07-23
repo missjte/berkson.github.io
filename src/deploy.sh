@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 REMOTE="git@github.com:berkson/berkson.github.io.git"
-SITE="generated/deploy"
+SITE="generated/deploy/"
 DEPLOY="deploy/"
 
 info() {
@@ -70,7 +70,7 @@ deploy() {
     ./blog build > /dev/null
   fi
 
-  cp -r "$SITE"/* $DEPLOY
+  cp -r $SITE $DEPLOY
   info "copied $SITE into $DEPLOY"
 
   cd $DEPLOY
