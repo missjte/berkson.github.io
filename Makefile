@@ -9,3 +9,8 @@ install:
 watch:
 	cabal build
 	./blog watch
+
+clean:
+	cabal clean
+	cabal build
+	./blog build

@@ -18,29 +18,26 @@ import qualified Text.Blaze.Html5.Attributes     as A
 
 hakyllConfig :: Configuration
 hakyllConfig = defaultConfiguration
-  { deployCommand = "bash src/deploy.sh deploy"
-  , providerDirectory = "journal"
-  , destinationDirectory = "generated/deploy"
-  , storeDirectory = "generated/cache"
-  , tmpDirectory = "generated/tmp"
-  , previewHost = "0.0.0.0"
-  , previewPort = 4000
-  , ignoreFile = isIgnored
+  { deployCommand             = "bash src/deploy.sh deploy"
+  , providerDirectory         = "journal"
+  , destinationDirectory      = "generated/deploy"
+  , storeDirectory            = "generated/cache"
+  , tmpDirectory              = "generated/tmp"
+  , previewHost               = "0.0.0.0"
+  , previewPort               = 4000
+  , ignoreFile                = isIgnored
   }
   where
-    isIgnored path
-      | ignoreFile defaultConfiguration name   = True
-      | name == "4913"                         = True
-      | otherwise                              = False
-      where name = takeFileName path
+    isIgnored ".htaccess"     = False
+    isIgnored name            = ignoreFile defaultConfiguration name
 
 atomConfig :: FeedConfiguration
 atomConfig = FeedConfiguration
-  { feedTitle = "Prick Your Finger"
-  , feedDescription = "The latest blog posts from Eiren &amp; Berkson!"
-  , feedAuthorName  = "Eiren &amp; Berkson"
-  , feedAuthorEmail = "us@prickyourfinger.org"
-  , feedRoot = "http://www.prickyourfinger.org"
+  { feedTitle                 = "Prick Your Finger"
+  , feedDescription           = "Latest blog posts from Eiren &amp; Berkson &#64; PrickYourFinger.org!"
+  , feedAuthorName            = "Eiren &amp; Berkson"
+  , feedAuthorEmail           = "us@prickyourfinger.org"
+  , feedRoot                  = "http://www.prickyourfinger.org"
   }
 
 main :: IO ()
@@ -54,22 +51,15 @@ main = hakyllWith hakyllConfig $ do
     compile $ do
       list <- postList tags pattern recentFirst
       makeItem ""
-        >>= loadAndApplyTemplate "template/archive.html" (mconcat [constField "body" list, archiveCtx tags, defaultContext])
+        >>= loadAndApplyTemplate "template/tags.html" (mconcat [constField "body" list, archiveCtx tags, constField "tagged" title, defaultContext])
         >>= loadAndApplyTemplate "template/default.html" (mconcat [constField "title" title, defaultContext])
         >>= relativizeUrls
         >>= deIndexUrls
 
   -- Add static content
-  mapM_ (`match` (route idRoute >> compile copyFileCompiler))
-    [ "CNAME"
-    , "LICENSE"
-    , "favicon.ico"
-    , "img/**"
-    ]
-
-  match "htaccess" $ do
-    route   $ constRoute ".htaccess"
-    compile   copyFileCompiler
+  match "static/*" $ do
+    route   $ gsubRoute "static/" (const "")
+    compile copyFileCompiler
 
   -- Add raw CSS
   match "css/*.css" $ do

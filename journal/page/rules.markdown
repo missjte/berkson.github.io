@@ -34,7 +34,7 @@ published: January 21, 2015
     *   His computer chair and the shoe stool are exceptions, unless he exhibits bad behaviour or abuses this privilege, in which case it will be taken away.
 
 
-## Current Command (Extra Nerd Points: **sudo** to run as a superuser.)
+## Current Command (_sudo to run as a superuser_)
 
 1.  **Snap of the Fingers**
     *   Berkson will stop talking, close his mouth, and pay attention to Mistress Eiren.
