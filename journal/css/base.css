@@ -32,8 +32,8 @@ a:hover, a:visited {
 
 blockquote {
   border-left: 3px solid #CB004A;
-  margin: 5px;
-  padding: 1em;
+  margin: 1em 3em;
+  padding-left: 1em;
 }
 
 hr {
@@ -106,6 +106,8 @@ body > footer {
 
 footer p {
   margin: 0;
+  color: #949494;
+  font-size: 0.75em;
 }
 
 .taglist {

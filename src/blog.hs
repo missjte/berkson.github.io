@@ -95,7 +95,7 @@ main = hakyllWith hakyllConfig $ do
       posts <- loadAll "posts/*"
       sorted <- recentFirst posts
       itemTpl <- loadBody "template/post-item.html"
-      list <- applyTemplateList itemTpl postCtx sorted
+      list <- applyTemplateList itemTpl listCtx sorted
       makeItem list
         >>= loadAndApplyTemplate "template/archive.html" (archiveCtx tags)
         >>= loadAndApplyTemplate "template/default.html" (archiveCtx tags)
@@ -109,7 +109,7 @@ main = hakyllWith hakyllConfig $ do
       posts <- loadAll "posts/*"
       sorted <- take 3 <$> recentFirst posts
       itemTpl <- loadBody "template/post-item.html"
-      list <- applyTemplateList itemTpl postCtx sorted
+      list <- applyTemplateList itemTpl listCtx sorted
       makeItem list
         >>= loadAndApplyTemplate "template/index.html"   (homeCtx list)
         >>= loadAndApplyTemplate "template/default.html" (homeCtx list)
@@ -120,7 +120,7 @@ main = hakyllWith hakyllConfig $ do
   create ["atom.xml"] $ do
     route idRoute
     compile $ do
-      let feedCtx = mconcat [postCtx, bodyField "description"]
+      let feedCtx = mconcat [listCtx, bodyField "description"]
       posts <- mapM deIndexUrls =<< fmap (take 10) . recentFirst
         =<< loadAllSnapshots "posts/*" "content"
       renderAtom atomConfig feedCtx posts
@@ -132,7 +132,16 @@ main = hakyllWith hakyllConfig $ do
 
 postCtx :: Context String
 postCtx = mconcat
-  [ dateField "date" "%d %b %y"
+  [ dateField "date" "%B %e, %Y"
+  , fileNameField "filename"
+  , gitTag "git"
+  , historyTag "history"
+  , defaultContext
+  ]
+
+listCtx :: Context String
+listCtx = mconcat
+  [ dateField "date" "%d %b %Y"
   , fileNameField "filename"
   , gitTag "git"
   , historyTag "history"
@@ -142,7 +151,8 @@ postCtx = mconcat
 archiveCtx :: Tags -> Context String
 archiveCtx tags = mconcat
   [ constField "title" "Archive"
-  , dateField "date" "%d %b %Y"
+  , gitTag "git"
+  , historyTag "history"
   , field "taglist" (\_ -> renderTagBlock tags)
   , defaultContext
   ]
@@ -176,11 +186,11 @@ tagsBlockWith getTags' key tags = field key $ \item -> do
         route' <- getRoute $ tagsMakeId tags tag
         return $ renderLink tag route'
 
-    return $ renderHtml $ mconcat $ intersperse " " $ catMaybes links
+    return $ renderHtml $ mconcat $ intersperse " · " $ catMaybes links
   where
     renderLink _   Nothing         = Nothing
     renderLink tag (Just filePath) = Just $
-      H.code ! A.class_ "tags" $ H.a ! A.href (toValue $ toUrl filePath) $ toHtml tag
+      H.a ! A.href (toValue $ toUrl filePath) $ toHtml tag
 
 tagsBlock :: String
           -> Tags
