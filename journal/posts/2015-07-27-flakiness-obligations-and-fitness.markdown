@@ -25,13 +25,13 @@ For my development as a person, I can't keep doing this to myself, I can't keep 
 
 **I** have to be a force of change in my life, and this is a bad habit **I** have to break.  That isn't to say that she can't or that she doesn't help me, or encourage me, but if I can't do this for her, what right do I have to call her my owner, my Mistress?  What am I giving back to the relationship?  _Why am I even kidding myself with saying that I'm submissive?_
 
-So, I'll start with something familiar, something that I'm used to... working out, every week, at least three times a week.
+So, I'll start with something familiar, something that I'm used to... working out.
 
 ### Emotional & Physical Fitness
 
-The cool thing about this is that I'm literally "working out my problems" and the solution makes me, in my mind, a better submissive all around.  I personally believe that one of the best things someone who describes themselves as submissive can do is have a good body and take care of themselves.
+The cool thing about this is that I'm literally "working out my problems" and the solution makes me, in my mind, a better submissive all around.  In the same way that you can't weld without metal, you can't work on a problem without going to the root of it.  If I have an issue with obligations, then I need to make obligations to work on... also, I personally believe that one of the best things someone who describes themselves as submissive can do is have a good body and take care of themselves.  This doesn't necessarily mean be ripped, but living a healthy lifestyle and taking care of a body that you ultimately want to surrender.
 
-This doesn't nessessarily mean be ripped, but living a healthy lifestyle and taking care of a body that you ultimately want to surrender.  **I'm all about that life**.  Just because I don't workout like I was or log like I did when I was on my _routine_ doesn't mean I haven't been working out, because I do every morning before bed and every evening when I wake up (weird schedule, don't judge me).
+**I'm all about that life**.  Just because I don't workout like I was or log like I did when I was on my _routine_ doesn't mean I haven't been working out, because I do every morning before bed and every evening when I wake up (weird schedule, don't judge me).
 
 To top all of this off... when I work out, Mistress Eiren wants to work out too.  For those of you who actually read what I write (one, maybe two of you?) you might have guessed that she has suffered from _pretty severe_ medical issues her entire life.  If I hadn't met her... she **probably would** have been dead.  I changed her life around pretty dramatically, to include bringing an other-than-sedentary lifestyle into our relationship.  Working out together is so special to me, because it's a testament to how far **she** has come and how much we've grown together.
 
@@ -47,7 +47,7 @@ As well as a consolidation of everything that I've done during the week, how I f
 
 ### In conclusion...
 
-Flakiness sucks.  I need to remember that this isn't just for me, but for **Her**.  For the people that I tell I'm going to do, so I can be trusted.  So I can be someone worth trusting.
+Flakiness sucks.  I need to remember that this isn't just for me, but for **Her**. To the people I make promises to, so my word is trusted, so I can be trusted, _so I can be someone **worth** trusting_.
 
 That means so much to me.  No one can fix it but me, and I have to do it.  I have to be able to self-improve, to constantly look at myself and think how I can do better, and then ask her if I'm right or if I'm wrong... We're a team, and I've been a shitty teammate.
 
