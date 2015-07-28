@@ -19,7 +19,7 @@ import qualified Text.Blaze.Html5.Attributes     as A
 
 hakyllConfig :: Configuration
 hakyllConfig = defaultConfiguration
-  { deployCommand             = "bash src/deploy.sh deploy"
+  { deployCommand             = "bash source/deploy.sh deploy"
   , providerDirectory         = "journal"
   , destinationDirectory      = "generated/deploy"
   , storeDirectory            = "generated/cache"
@@ -48,10 +48,7 @@ main = do
 
   let preview = action == "watch" || action == "preview"
       hakyllConfig' = if preview
-        then hakyllConfig
-          { destinationDirectory = "generated/preview/out"
-          , storeDirectory       = "generated/preview/cache"
-          , tmpDirectory         = "generated/preview/cache/tmp" }
+        then hakyllConfig { destinationDirectory = "generated/preview" }
         else hakyllConfig
       previewPattern stem =
         let normal = fromGlob $ stem ++ "/*"

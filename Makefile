@@ -4,7 +4,7 @@ all:
 
 install:
 	cabal build
-	./src/deploy.sh setup
+	./source/deploy.sh setup
 
 watch:
 	cabal build
