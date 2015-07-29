@@ -2,6 +2,8 @@
 
 import           Hakyll
 
+import           Site.Sitemap
+
 import           System.Environment
 import           System.FilePath.Posix
 import           System.Process
@@ -40,6 +42,9 @@ atomConfig = FeedConfiguration
   , feedAuthorEmail           = "eiren.berkson@gmail.com"
   , feedRoot                  = "http://www.prickyourfinger.org"
   }
+
+sitemapConfig :: SitemapConfiguration
+sitemapConfig = def { sitemapBase     = "http://www.prickyourfinger.org/" }
 
 main :: IO ()
 main = do
@@ -139,6 +144,11 @@ main = do
         posts <- mapM deIndexUrls =<< fmap (take 10) . recentFirst
           =<< loadAllSnapshots postsPattern "content"
         renderAtom atomConfig feedCtx posts
+
+    -- Generate Sitemap
+    create ["sitemap.xml"] $ do
+      route   idRoute
+      compile $ generateSitemap sitemapConfig
 
     -- Generate Templates
     match "template/*" $ compile templateCompiler
