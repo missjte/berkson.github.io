@@ -11,3 +11,5 @@ generated/
 cabal.sandbox.config
 
 _mdwriter.cson
+
+source/vps.sh

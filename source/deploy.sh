@@ -19,9 +19,10 @@ fail() {
 
 # shouldn't happen since `site` binary is usually at root to
 # begin with, but doesn't hurt to check
-dir_check() {
-  if [ ! -f "blog.hs" ]; then
-    fail "not at root dir"
+vps_install() {
+  if [ ! -f "vps.sh" ]; then
+    cd ..
+    ./source/vps.sh
   fi
 }
 
@@ -42,7 +43,8 @@ setup() {
   git checkout --orphan master -q
   info "established master branch"
   git remote add origin $REMOTE
-  info "established git remote"
+
+  vps_install
 
   success "setup complete"
 }
