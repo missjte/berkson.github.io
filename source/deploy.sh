@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 REMOTE="git@github.com:berkson/berkson.github.io.git"
-SITE="generated/deploy/"
-DEPLOY="deploy/"
+SITE="generated/deploy/."
+DEPLOY="deploy"
 
 info() {
   printf "  \033[00;32m+\033[0m $1\n"
@@ -59,7 +59,7 @@ deploy() {
   # clean out deploy & cache and move in the new files
 
   cd $DEPLOY
-  find . -path ./.git -prune -o -exec rm -rf {} \; > /dev/null
+  find . \( -name .git -prune \) -o -type f -exec rm {} + 2> /dev/null
   cd ..
 
   info "cleaned out $DEPLOY"
@@ -67,9 +67,9 @@ deploy() {
 
   if [[ "$OSTYPE"x == "msys"x ]]; then
     # no unicode support in msys, so invoke powershell and establish code page
-    powershell "chcp 65001; ./blog build" > /dev/null
+    powershell "chcp 65001; ./blog build" 2> /dev/null
   else
-    ./blog build > /dev/null
+    ./blog build 2> /dev/null
   fi
 
   cp -r $SITE $DEPLOY
