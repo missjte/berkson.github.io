@@ -1,5 +1,5 @@
 ---
-title: Flakiness, Obligations, & Fitness
+title: Flakiness, Obligations, &amp; Fitness
 tags: berkson, fitness, femdom, submissive, self-worth, first year
 ---
 
@@ -13,7 +13,7 @@ I slept better, I dream't better, I loved better.  I had a **personal** routine,
 
 I hate that I struggle with obligations so much, especially because I have a relationship that is built on top of obligations, especially because, when I don't follow through with my obligations, I'm just being a liar, and especially because it doesn't hurt just me, it hurts the person who all I want to do is cherish.  It hurts someone who, by all accounts, owns me.
 
-Who has taken it upon herself to say that I am _her lover_, _her friend_, _her husband_, _her slave_... with the expectation that I will be adult enough to do the things I say I will do.  She gives me the gift of ownership and I repay her with garbage, half-baked half-truths.
+Who has taken it upon herself to say that I am _her friend_, _her lover_, _her husband_, _her slave_... with the expectation that I will be adult enough to do the things I say I will do.  She gives me the gift of ownership and I repay her with garbage, half-baked half-truths.
 
 That is so much worse than if I were to have just never made the obligation at all.  Don't get me wrong, I say "no" a lot, but we have our reasons for that... they're not always good reasons, but we've agreed that they are in a lot of ways legitimate (to a very specific point); but not following through with something I say I'm going to do is by any account horrible.
 
@@ -39,7 +39,7 @@ To top all of this off... when I work out, Mistress Eiren wants to work out too.
 
 I'll workout, at a minimum, four days a week.  Two days for strength training and two days for cardio.  Making sure I do at least two of either these is great, because it makes me want to shoot for five days.  Three days of running or three days of lifting is ideal, so it motivates me to schedule out more days to accommodate my goal.
 
-I must log my workouts on Fitocracy, to include my morning and evening routine, as well as an end-of-the-week update on here.  I'll post my stats (not including height) weekly:
+I will post a weekly progress report, that will include my stats (not including height):
 
 > **Height:** 6’ 7” (201cm) — **Weight:** 200lbs (91kg) — **BMI:** 30% — **Diet:** Maintenance
 

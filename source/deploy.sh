@@ -17,8 +17,7 @@ fail() {
   exit
 }
 
-# shouldn't happen since `site` binary is usually at root to
-# begin with, but doesn't hurt to check
+# Run VPS install script for other-than-Github deployment, if available
 vps_install() {
   if [ ! -f "vps.sh" ]; then
     cd ..
