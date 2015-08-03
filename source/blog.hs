@@ -81,9 +81,13 @@ main = do
       route   $ gsubRoute "static/" (const "")
       compile copyFileCompiler
 
-      match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
+    match "images/*" $ do
+      route   idRoute
+      compile copyFileCompiler
+
+    match "podcasts/*" $ do
+      route   idRoute
+      compile copyFileCompiler
 
     -- Add raw CSS
     match "css/*.css" $ do
