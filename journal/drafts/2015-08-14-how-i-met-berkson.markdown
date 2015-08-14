@@ -5,9 +5,9 @@ tags: eiren, introduction, story time, first year
 
 <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/219204657&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
-**Note**: This podcast was transcribed by _Berkson_ @ www.prickyourfinger.org for clarity and accuracy, however to really hear the heart and soul of the story, please listen to the audio version.
+**Note**: This podcast was transcribed by _Berkson_ for clarity and accuracy, however to really hear the heart and soul of the story, please listen to the audio version available above or [on SoundCloud](https://soundcloud.com/prickyourfinger/how-i-met-berkson/).
 
-**Hi everybody it's Eiren and I thought I'd give you my happy femdom story^[http://www.domme-chronicles.com/2015/01/happy-femdom-stories-wanted] on how I met Berkson...**
+**Hi everybody it's _Eiren_ and I thought I'd give you my happy femdom story^[http://www.domme-chronicles.com/2015/01/happy-femdom-stories-wanted] on how I met Berkson...**
 
 ## How I met Berkson
 
