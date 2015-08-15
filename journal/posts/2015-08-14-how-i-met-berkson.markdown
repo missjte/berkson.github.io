@@ -1,13 +1,13 @@
 ---
 title: How I met Berkson
-tags: eiren, introduction, story time, first year
+tags: eiren, podcast, introduction, story time, first year
 ---
 
 <iframe width="100%" height="150" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/219204657&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
 
 **Note**: This podcast was transcribed by _Berkson_ for clarity and accuracy, however to really hear the heart and soul of the story, please listen to the audio version available above or [on SoundCloud](https://soundcloud.com/prickyourfinger/how-i-met-berkson/).
 
-**Hi everybody it's _Eiren_ and I thought I'd give you my happy femdom story^[http://www.domme-chronicles.com/2015/01/happy-femdom-stories-wanted] on how I met Berkson...**
+**Hi everybody it's _Eiren_ and I thought I'd give you my happy femdom story^[[Happy Femdom Stories Wanted](http://www.domme-chronicles.com/2015/01/happy-femdom-stories-wanted) via [Domme-Chronicles](http://www.domme-chronicles.com/) by [Ferns](http://www.twitter.com/Ferns__)] on how I met Berkson...**
 
 ## How I met Berkson
 
@@ -21,7 +21,7 @@ Anyways, I'm going to tell you about how I met him:
 
 I had a mutual friend with my ex in this game who co-owned a full-prim sim, called a region.  If you don't know a whole lot about Second Life, you're not missing much, but to be short a sim was a place where you could visit and do various things, like shop, place objects, or build... among other things.  Owners generally shared land or rented it out because of the huge monthly costs, around $500USD a month at the time.
 
-Well, through our friend, my ex was actually given a piece of this land, called a parcel.  She teleported me over to her, and was telling me all about how the owners, one being my friend, of the sim were giving out free parcels and asking me if I wanted any inside of a private message, and I was thinking... Nah.  At that point in time I had like four parcels already, with stuff all over them.  I didn't really need a new one.
+Well, through our friend, my ex was actually given a piece of this land, called a parcel.  She teleported me over to her, and was telling me all about how the owners, one being my friend, of the region were giving out free parcels and asking me if I wanted any inside of a private message, and I was thinking... Nah.  At that point in time I had like four parcels already, with stuff all over them.  I didn't really need a new one.
 
 And so, in general chat, I casually said something along the lines of: “No thanks, I already have my hands in a lot of cookie jars.” Well, the proprietor of the sim, Berkson, was sitting up there because he had been teleported in to meet me and my ex by our friend.
 
@@ -59,7 +59,7 @@ It didn't take long, probably the better part of a year, where he decided he was
 
 He accepted me for who I was, he accepted who I am, he accepted me with ALL of my flaws... and it's still crazy to me, to this day, to have somebody come into my life and for me to put all of my baggage on the table and say "Here's what I have" and for him to pick it up and say "I'll help you carry this", but I appreciated that more than anything else in the world.  I appreciated for him to say, Hey... I'll help bare this load for you, I can tell that you can't do it alone... and he really WAS my best friend at that point in time.
 
-We met up, and it was magical, it was 12 days and I'll never forget it... we spent most of our time in bed, and I don't mean sexually, I mean like cuddling, canoodling, laying on each other and holding each other and rubbing each other, talking... we played endless hours of monopoly, by the way he's a big fat cheater and he can't tell me otherwise because he wins EVERY SINGLE GAME, bastard, but we spent hours just watching movies and snuggling and it was something that I just... had never, ever experienced.  I guess that if you just find that one person that you click with, that one person that just fits that whole in your heart, your whole world changes.
+We met up, and it was magical, it was 12 days and I'll never forget it... we spent most of our time in bed, and I don't mean sexually, I mean like cuddling, canoodling, laying on each other and holding each other and rubbing each other, talking... we played endless hours of monopoly, by the way he's a big fat cheater and he can't tell me otherwise because he wins EVERY SINGLE GAME, bastard, but we spent hours just watching movies and snuggling and it was something that I just... had never, ever experienced.  I guess that if you just find that one person that you click with, that one person that just fits that hole in your heart, your whole world changes.
 
 He was with me for only 12 days and, when he went home, both of us just knew this was it.  This was IT.  We needed to be together.  So, it took 3 months for him to save enough money to actually move in with me, so, once we moved in together we had kind of decided some things, that we had talked about being in a power-exchange relationship, but to be completely and totally honest with you, neither one of us knew what that meant.  I mean, I had a tiny bit of background in kink, and he had Second Life kink, and we both kind of _expected_ that this was the way things would be, and it would be an easy transition and that was NOT what happened at all.
 
@@ -101,6 +101,6 @@ But we make each other laugh, and, I love when he's completely spent after a ses
 
 How does it make me feel?
 
-Like the most important person in the world, it makes me feel like I'm the most special person that every lived.  That my purpose is exemplified, to be able to be with somebody and have that ultimate feeling of trust in your hands and have somebody look at you and be like... you're my universe, it makes me feel on top of the world.
+Like the most important person in the world, it makes me feel like I'm the most special person that has ever lived.  That my purpose is exemplified, to be able to be with somebody and have that ultimate feeling of trust in your hands and have somebody look at you and be like... you're my universe, it makes me feel on top of the world.
 
 So this will be my first podcast, and I hope that you guys enjoyed it... **Let me know what you think**.
