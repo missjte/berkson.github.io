@@ -9,7 +9,7 @@ Sometimes our bodies fight against us.  Eiren has had more than her fair share o
 
 She had never had someone in her life genuinely care about her well being, and... with all of the humility I can muster, I am proud to say that I absolutely do.
 
-Eiren had another major surgery last week, and has had nothing but bad thoughts about how she looks... although I see her has beautiful, sometimes it takes another little nudge from something else to remind us that our brains aren't always on our side.
+Eiren had another major surgery last week, and has had nothing but bad thoughts about how she looks... although I see her as beautiful, sometimes it takes another little nudge from something else to remind us that our brains aren't always on our side.
 
 **My Mistress, my love...**
 
