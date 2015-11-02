@@ -13,7 +13,7 @@ Eiren had another major surgery last week, and has had nothing but bad thoughts 
 
 **My Mistress, my love...**
 
-**Your wound's don't make you any less beautiful...**
+**Your wounds don't make you any less beautiful...**
 
 ![**But they will make you stronger...**](/images/2015-10-01-sinful-sunday.jpg)
 
