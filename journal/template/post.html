@@ -9,12 +9,19 @@ $body$
 
   </article>
   <footer>
+    <div id="disqus_thread"></div>
     <script>
-      var idcomments_acct = '479ee2bf79bbd33f7e4eaef20ca63551';
-      var idcomments_post_id;
-      var idcomments_post_url;
+      var disqus_developer = 1;
+      var disqus_config = function () {
+        this.page.url = $url$;
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = '//prickyourfinger.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
     </script>
-    <span id="IDCommentsPostTitle" style="display:none"></span>
-    <script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
   </footer>
 </main>
