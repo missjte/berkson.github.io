@@ -19,6 +19,9 @@ import           Text.Blaze.Html.Renderer.String (renderHtml)
 import qualified Text.Blaze.Html5                as H
 import qualified Text.Blaze.Html5.Attributes     as A
 
+host :: String
+host = "http://prickyourfinger.org"
+
 hakyllConfig :: Configuration
 hakyllConfig = defaultConfiguration
   { deployCommand             = "bash source/deploy.sh deploy"
@@ -40,11 +43,11 @@ atomConfig = FeedConfiguration
   , feedDescription           = "Latest blog posts from Eiren &amp; Berkson &#64; PrickYourFinger.org!"
   , feedAuthorName            = "Eiren &amp; Berkson"
   , feedAuthorEmail           = "eiren.berkson@gmail.com"
-  , feedRoot                  = "http://www.prickyourfinger.org"
+  , feedRoot                  = "http://prickyourfinger.org"
   }
 
 sitemapConfig :: SitemapConfiguration
-sitemapConfig = def { sitemapBase     = "http://www.prickyourfinger.org/" }
+sitemapConfig = def { sitemapBase     = "http://prickyourfinger.org/" }
 
 main :: IO ()
 main = do
@@ -153,6 +156,7 @@ main = do
     create ["sitemap.xml"] $ do
       route   idRoute
       compile $ generateSitemap sitemapConfig
+        >>= deIndexUrls
 
     -- Generate Templates
     match "template/*" $ compile templateCompiler
@@ -189,6 +193,7 @@ archiveCtx tags = mconcat
 tagsCtx :: Tags -> Context String
 tagsCtx tags = mconcat
   [ tagsBlock "prettytags" tags
+  , constField "host" host
   , postCtx
   ]
 

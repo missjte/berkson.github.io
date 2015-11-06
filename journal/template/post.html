@@ -11,9 +11,11 @@ $body$
   <footer>
     <div id="disqus_thread"></div>
     <script>
-      var disqus_developer = 1;
       var disqus_config = function () {
-        this.page.url = $url$;
+        this.page.url = '$host$$url$';
+
+        this.page.identifier = '$path$';
+        this.page.title = '$title$';
       };
       (function() {
         var d = document, s = d.createElement('script');
