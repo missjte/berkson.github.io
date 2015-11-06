@@ -1,5 +1,5 @@
 ---
-title: Your wounds don't make you any less beautiful
+title: Your wounds don&#39;t make you any less beautiful
 tags: second year, berkson, eiren, picture, sinful sunday
 ---
 
