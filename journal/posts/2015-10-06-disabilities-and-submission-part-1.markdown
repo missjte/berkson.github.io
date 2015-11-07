@@ -9,7 +9,7 @@ I'm no one special, and I don't have this fantastic life where my Mistress & I s
 
 Throughout all of this, my dearest hope is that most of all that you who come to read this that may be in a similar situation understand that this isn't an end all, be all guide to submitting under these circumstances, it is simply my experience.  I'm not a doctor, I'm not educated, I'm just Eiren's and to speak on behalf of **our** relationship is the only qualification I possess.
 
-This is part one of a series of, well, **I really don't know**.  They'll be erratic, and confusing, and
+This is part one of a series of, well, **I don't really know**.  They'll be erratic, and confusing, long, and probably won't have a conclusion.
 
 # Prelude
 
