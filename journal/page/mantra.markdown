@@ -3,7 +3,9 @@ title: Keep it simple, stupid!
 published: January 21, 2015
 ---
 
-**Keep it simple, stupid!** Otherwise known as **KISS** is the idea that all systems should be as lightweight, readable, and all together as _simple_ as possible. We've tried rules over the years of us being together as just a set list of things or tasks that _Berkson_ must follow, but it always turned out to be too much or too hard to keep track of... Berkson would stop listening or obeying rules and Eiren would stop enforcing rules and punishing disobedience, and things would drift back to what they before the rules. Sometimes, this happened quickly like after an argument or just from a lack of our trying, and sometimes it would happen over months, but it **always** ended up happening one way or another.
+# Keep it simple, stupid!
+
+Otherwise known as the **KISS principle** is an idea that states all systems should be as lightweight, readable, and all together as _simple_ as possible. We've tried rules over the years of us being together as just a set list of things or tasks that _Berkson_ must follow, but it always turned out to be too much or too hard to keep track of... Berkson would stop listening or obeying rules and Eiren would stop enforcing rules and punishing disobedience, and things would drift back to what they before the rules. Sometimes, this happened quickly like after an argument or just from a lack of our trying, and sometimes it would happen over months, but it **always** ended up happening one way or another.
 
 The over complication made our lives all together too hectic, and eventually failed. This time around, we both believe we're prepared. We have both recognized that before, there was just so much to what we both were expecting from each other, and one or both of us were getting overwhelmed with the way our lives flowed with an excess amount of rules. So now, we believe we have developed a better system of learning to suit our needs, one that we hope can be kept "_simple, stupid!_" and in alignment with how we both think: **Expectations, Rules, & Commands**!
 

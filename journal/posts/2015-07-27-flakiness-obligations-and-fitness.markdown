@@ -39,11 +39,13 @@ To top all of this off... when I work out, Mistress Eiren wants to work out too.
 
 I'll workout, at a minimum, four days a week.  Two days for strength training and two days for cardio.  Making sure I do at least two of either these is great, because it makes me want to shoot for five days.  Three days of running or three days of lifting is ideal, so it motivates me to schedule out more days to accommodate my goal.
 
-I will post a weekly progress report, that will include my stats (not including height):
+**EDIT**: I'll be changing progress reports from weekly to monthly, I can't manage the time requirement for weekly posts with the new position at work.
+
+I will post a monthly progress report, that will include my stats (not including height):
 
 > **Height:** 6’ 7” (201cm) — **Weight:** 200lbs (91kg) — **BMI:** 30% — **Diet:** Maintenance
 
-As well as a consolidation of everything that I've done during the week, how I felt emotionally and physically, and my goals for the next week.
+As well as a summery of everything that I've done during the month, how I felt emotionally and physically, and my goals for the next month.
 
 ### In conclusion...
 
