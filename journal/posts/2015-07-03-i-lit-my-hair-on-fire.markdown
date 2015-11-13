@@ -1,6 +1,6 @@
 ---
 title: I lit my hair on fire
-tags: berkson, random, story time, first year
+tags: berkson, random, story time, first year, past
 ---
 
 I've never really been one for drinking.
