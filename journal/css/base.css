@@ -124,6 +124,7 @@ footer p {
 
 .tags
 {
+  background: #FFFFFF;
   border: solid 1px #CB004A;
   border-radius: 2px;
   color: #76002B;
@@ -143,10 +144,6 @@ footer p {
   background: #CB004A;
   border: solid 1px #76002B;
   color: #FFFFFF;
-}
-
-.tags a:hover, .tags a:visited {
-  color: inherit;
 }
 
 code {
@@ -169,7 +166,7 @@ code.history {
   border-color: #CB004A;
 }
 
-code a:link, code a:visited {
+.tags a:hover, .tags a:visited, code a:link, code a:visited {
   color: inherit;
 }
 
