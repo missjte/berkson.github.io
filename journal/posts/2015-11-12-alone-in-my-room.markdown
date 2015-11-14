@@ -5,7 +5,7 @@ tags: story time, femdom, berkson, eiren, past, second year
 
 It was dark again and it hadn't stopped surprising me yet.  I could hear the birds and the freeway in the distance, the bustling of life from behind the now blackened windows, and it was perfect and cold and it was dark.
 
-The sun was usually so harsh, but now the only light was from dim glowing letters of the keyboard.  It shone against the ceiling and around the tall wood and leather chair, that much resembled a throne to me, sitting grandly before the oak desk.  I lay and thought approving thoughts to myself for a while, but it hadn't been my idea, it had been Hers.
+The sun was usually so harsh, but now the only light was from dim glowing letters of the keyboard hidden from sight.  It shone against the ceiling and around the tall wood and leather chair, that much resembled a throne to me, sitting grandly before the oak desk.  I lay and thought approving thoughts to myself for a while, but it hadn't been my idea, it had been Hers.
 
 "Go to the hardware store and buy blackout film." she had instructed me the week before, sick and tired of me not getting the rest that she expected I get.
 

@@ -122,6 +122,33 @@ footer p {
   list-style: circle;
 }
 
+.tags
+{
+  border: solid 1px #CB004A;
+  border-radius: 2px;
+  color: #CB004A;
+  font-size: 0.75em;
+  margin-top: 6px;
+  moz-transition: all .3s ease;
+  ms-transition: all .3s ease;
+  o-transition: all .3s ease;
+  padding: 0 6px;
+  padding-top: 1px;
+  transition: all .3s ease;
+  webkit-transition: all .3s ease;
+}
+
+.tags:hover
+{
+  background: #CB004A;
+  border: solid 1px #76002B;
+  color: #FFFFFF;
+}
+
+.tags a:hover, .tags a:visited {
+  color: inherit;
+}
+
 code {
   font-size: 0.75em;
   margin: 0 auto;
@@ -142,18 +169,10 @@ code.history {
   border-color: #CB004A;
 }
 
-code.tags a:link {
-  color: #CB004A;
-  text-decoration: none;
-}
-
 code a:link, code a:visited {
   color: inherit;
 }
 
-code.tags a:visited, code.tags a:hover {
-  color: #76002B;
-}
 
 @media screen and (max-width: 775px) {
   body {
