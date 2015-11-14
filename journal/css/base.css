@@ -136,6 +136,7 @@ footer p {
   padding: 0 6px;
   padding-top: 1px;
   transition: all .3s ease;
+  white-space: nowrap;
   webkit-transition: all .3s ease;
 }
 
