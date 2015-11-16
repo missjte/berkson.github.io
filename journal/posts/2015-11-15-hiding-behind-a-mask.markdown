@@ -13,9 +13,9 @@ You can hide your face, and you can hide your body.  You can pretend, and you ca
 
 **But if you let someone into your life, you can not always hide your soul.**
 
-And so the second mask slowly faded until it was gone and forgotten, and she was left with only the mask she was born with.  When she met me, she was certain that it was full and dark and black and safe.  She was sure that it covered everything precious, because she was ashamed at who she was, terrified that if she took it off, I'd be able to see her for what she saw in herself.
+And so the second mask slowly faded until it was gone and forgotten, and she was left with only the mask she was born with.  When she finally let me visit her, she was certain that the mask was full and dark and black and safe.  She was sure that it covered everything precious, because she was ashamed of who she was, terrified that if she took it off, I'd be able to see her for what she saw in herself.
 
-**Oh, my wonderful lover... she never realized that I could always see right through it...**
+**Oh, my wonderful lover... she never realized that I could always see right through it, and all I saw was beauty...**
 
 ![**And I will let this one fade until it's gone forever, too...**](/images/2015-11-15-sinful-sunday.jpg)
 
