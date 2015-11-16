@@ -15,7 +15,7 @@ Eiren had another major surgery last week, and has had nothing but bad thoughts 
 
 **Your wounds don't make you any less beautiful...**
 
-![**But they will make you stronger...**](/images/2015-10-01-sinful-sunday.jpg)
+![**But they will make you stronger...**](/images/2015-11-01-sinful-sunday.jpg)
 
 <div align="center">
   <a href="http://sinfulsunday.mollysdailykiss.com" rel="nofollow" title="Sinful Sunday" target="_blank">
