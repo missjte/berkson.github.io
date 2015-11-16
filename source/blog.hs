@@ -208,7 +208,7 @@ renderTagBlock :: Tags -> Compiler String
 renderTagBlock = renderTags makeLink unwords
   where
     makeLink tag url count _ _ =
-      renderHtml $ H.span ! A.class_ "tags" $ H.a ! A.href (toValue url) $ toHtml (tag ++ "(" ++ show count ++ ")")
+      renderHtml $ H.span ! A.class_ "tags" $ H.a ! A.href (toValue url) $ toHtml (tag ++ " (" ++ show count ++ ")")
 
 tagsBlockWith :: (Identifier -> Compiler [String])
               -> String
