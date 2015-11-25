@@ -22,9 +22,10 @@ copyBinary args buildFlags pkgDesc buildInfo = do
     putStrLn $ "Copying executable '" ++ binary ++ "' to current directory..."
     copyFile (buildDir buildInfo </> "blog" </> binary) binary
 
-    e <- doesDirectoryExist "generated"
-    when e$ putStrLn "Cleaning previous generated content..."
-    when e$ removeDirectoryRecursive "generated"
+    g <- doesDirectoryExist "generated"
+    when g$ putStrLn "Cleaning previous generated content..."
+    when g$ removeDirectoryRecursive "generated"
 
-    putStrLn "Cleaning build directory..."
-    removeDirectoryRecursive "dist"
+    b <- doesDirectoryExist "disc"
+    when b$ putStrLn "Cleaning build directory..."
+    when b$ removeDirectoryRecursive "disc"

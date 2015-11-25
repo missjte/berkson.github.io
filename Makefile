@@ -1,16 +1,11 @@
 all:
-	cabal build
+	stack build
 	./blog deploy
 
 install:
-	cabal build
+	stack build
 	./source/deploy.sh setup
 
 watch:
-	cabal build
+	stack build
 	./blog watch
-
-clean:
-	cabal clean
-	cabal build
-	./blog build
