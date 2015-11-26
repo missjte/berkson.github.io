@@ -1,13 +1,15 @@
-import Distribution.Simple
-import Distribution.Simple.Setup
-import Distribution.Simple.LocalBuildInfo
-import Distribution.PackageDescription as PD
+import           Distribution.PackageDescription    as PD
+import           Distribution.Simple
+import           Distribution.Simple.LocalBuildInfo
+import           Distribution.Simple.Setup
 
-import Control.Monad (when)
-import Data.Maybe (isJust, fromJust)
-import Data.List (find, isPrefixOf)
-import System.Directory (copyFile, removeDirectoryRecursive, doesDirectoryExist)
-import System.FilePath ((</>))
+import           Control.Monad                      (when)
+import           Data.List                          (find, isPrefixOf)
+import           Data.Maybe                         (fromJust, isJust)
+import           System.Directory                   (copyFile,
+                                                     doesDirectoryExist,
+                                                     removeDirectoryRecursive)
+import           System.FilePath                    ((</>))
 
 main :: IO ()
 main = defaultMainWithHooks $ simpleUserHooks { postBuild = copyBinary }

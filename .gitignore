@@ -7,6 +7,5 @@ deploy/
 generated/
 
 .stack-work/
-stack.yaml
 
 source/vps.sh
