@@ -1,15 +1,13 @@
-import           Distribution.PackageDescription    as PD
-import           Distribution.Simple
-import           Distribution.Simple.LocalBuildInfo
-import           Distribution.Simple.Setup
+import Distribution.Simple
+import Distribution.Simple.Setup
+import Distribution.Simple.LocalBuildInfo
+import Distribution.PackageDescription as PD
 
-import           Control.Monad                      (when)
-import           Data.List                          (find, isPrefixOf)
-import           Data.Maybe                         (fromJust, isJust)
-import           System.Directory                   (copyFile,
-                                                     doesDirectoryExist,
-                                                     removeDirectoryRecursive)
-import           System.FilePath                    ((</>))
+import Control.Monad (when)
+import Data.Maybe (isJust, fromJust)
+import Data.List (find, isPrefixOf)
+import System.Directory (copyFile, removeDirectoryRecursive, doesDirectoryExist)
+import System.FilePath ((</>))
 
 main :: IO ()
 main = defaultMainWithHooks $ simpleUserHooks { postBuild = copyBinary }
@@ -24,10 +22,9 @@ copyBinary args buildFlags pkgDesc buildInfo = do
     putStrLn $ "Copying executable '" ++ binary ++ "' to current directory..."
     copyFile (buildDir buildInfo </> "blog" </> binary) binary
 
-    g <- doesDirectoryExist "generated"
-    when g$ putStrLn "Cleaning previous generated content..."
-    when g$ removeDirectoryRecursive "generated"
+    e <- doesDirectoryExist "generated"
+    when e$ putStrLn "Cleaning previous generated content..."
+    when e$ removeDirectoryRecursive "generated"
 
-    b <- doesDirectoryExist "disc"
-    when b$ putStrLn "Cleaning build directory..."
-    when b$ removeDirectoryRecursive "disc"
+    putStrLn "Cleaning build directory..."
+    removeDirectoryRecursive "dist"

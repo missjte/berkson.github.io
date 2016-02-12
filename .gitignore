@@ -1,4 +1,5 @@
 .DS_Store
+.gitignore
 
 blog
 
@@ -6,6 +7,7 @@ dist/
 deploy/
 generated/
 
-.stack-work/
+.cabal-sandbox/
+cabal.sandbox.config
 
 source/vps.sh

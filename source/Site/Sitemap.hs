@@ -9,13 +9,13 @@ module Site.Sitemap
   , def
   ) where
 
-import           Data.Char          (toLower)
+import           Data.Char           (toLower)
 import           Data.Default.Class
-import           Data.Maybe         (catMaybes)
+import           Data.Maybe          (catMaybes)
 import           Data.Time
 import           Hakyll
-import           System.Directory   (getModificationTime)
-import           System.FilePath    (takeExtensions)
+import           System.Directory    (getModificationTime)
+import           System.FilePath     (takeExtensions)
 import           System.IO.Error
 import           Text.XML.Light
 

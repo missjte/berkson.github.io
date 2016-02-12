@@ -1,4 +1,4 @@
-name:                   blog
+name:                   PrickYourFinger
 version:                2.5.4
 synopsis:               Personal journal of Eiren & Berkson
 homepage:               prickyourfinger.org
@@ -16,7 +16,6 @@ executable blog
   hs-source-dirs:       source/
   main-is:              blog.hs
   ghc-options:          -O2 -Wall -threaded
-  other-modules:        Site.Sitemap
   other-extensions:     OverloadedStrings
   default-language:     Haskell2010
   build-depends:
