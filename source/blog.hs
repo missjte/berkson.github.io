@@ -105,15 +105,39 @@ main = do
         >>= relativizeUrls
         >>= deIndexUrls
 
+    -- Add Workouts
+    match "workout/*" $ do
+      route   $ directorizeDate `composeRoutes` setExtension "html"
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "template/workout.html"    (tagsCtx tags)
+        >>= saveSnapshot "workout"
+        >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
+        >>= relativizeUrls
+        >>= deIndexUrls
+
     -- Add Posts
     match postsPattern $ do
       route   $ directorizeDate `composeRoutes` setExtension "html"
       compile $ pandocCompiler
-        >>= loadAndApplyTemplate "template/post.html"    (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
         >>= relativizeUrls
         >>= deIndexUrls
+
+    -- Generate Fitness Tracker
+    create ["tracker"] $ do
+      route   $ indexedPages `composeRoutes` setExtension "html"
+      compile $ do
+        workouts <- loadAll "workout/*"
+        sorted <- recentFirst workouts
+        itemTpl <- loadBody "template/post-item.html"
+        list <- applyTemplateList itemTpl listCtx sorted
+        makeItem list
+          >>= loadAndApplyTemplate "template/tracker.html" (trackerCtx tags)
+          >>= loadAndApplyTemplate "template/default.html" (trackerCtx tags)
+          >>= relativizeUrls
+          >>= deIndexUrls
 
     -- Generate Archive
     create ["archive"] $ do
@@ -129,6 +153,7 @@ main = do
           >>= relativizeUrls
           >>= deIndexUrls
 
+
     -- Generate Homepage
     create ["index.html"] $ do
       route idRoute
@@ -143,7 +168,16 @@ main = do
           >>= relativizeUrls
           >>= deIndexUrls
 
-    -- Generate Atom Feed
+    -- Generate Atom Feed for Fitness Tracker
+    create ["tracker.xml"] $ do
+      route idRoute
+      compile $ do
+        let feedCtx = mconcat [listCtx, bodyField "description"]
+        workouts <- mapM deIndexUrls =<< fmap (take 10) . recentFirst
+          =<< loadAllSnapshots "workout/*" "workout"
+        renderAtom atomConfig feedCtx workouts
+
+    -- Generate Atom Feed for Blog
     create ["atom.xml"] $ do
       route idRoute
       compile $ do
@@ -176,6 +210,14 @@ listCtx :: Context String
 listCtx = mconcat
   [ dateField "date" "%d %b %Y"
   , fileNameField "filename"
+  , gitTag "git"
+  , historyTag "history"
+  , defaultContext
+  ]
+
+trackerCtx :: Tags -> Context String
+trackerCtx tags = mconcat
+  [ constField "title" "Fitness Tracker"
   , gitTag "git"
   , historyTag "history"
   , defaultContext
