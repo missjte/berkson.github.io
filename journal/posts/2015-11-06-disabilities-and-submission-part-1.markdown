@@ -3,7 +3,7 @@ title: Disabilities &amp; Submission - Part 1
 tags: second year, berkson, eiren, past
 ---
 
-# Warning
+## Warning
 
 I'm no one special, and I don't have this fantastic life where my Mistress & I share in an almost otherworldly exchange of power.  I'm just some guy who blogs badly and writes worse, trying to give you some insight in a relationship that is, a lot of the time, rocky, scary, depressing, and sad.
 
@@ -11,7 +11,7 @@ Throughout all of this, my dearest hope is that most of all that you who come to
 
 This is part one of a series of, well, **I don't really know**.  They'll be erratic, and confusing, long, and probably won't have a conclusion.
 
-# Prelude
+## Prelude
 
 I don't really know what I'm doing with my life, because _I'm_ not the person that I _really_ want to be, but I'm _with_ the person I was _meant_ to be with.  I'm with someone who, like me, is confused about what she wants to do with the rest of her life.
 
@@ -23,7 +23,7 @@ She was born into poverty and through the choices of those people around her who
 
 The hurt and hell that she had to go through to get here was awful, and it's painful to think about, but looking at her frustrated because she doesn't know what she's going to do, just like me, makes me so happy... your life wasn't lost, and everything that has happened in your past doesn't have to determine your future.
 
-# Shit's hard, yo.
+## Shit's hard, yo.
 
 You know, I feel like I'm always complaining... and it's one of the things I hate about myself.  Why can't I write about happy things?  Why is it that I am always having problems, or something is always going wrong.
 
@@ -41,7 +41,7 @@ I support someone who, on nearly a daily basis, thinks about suicide and how muc
 
 Someone who, before she met me, was just waiting around to die.
 
-# Having to be a fixer when you don't want to be.
+## Having to be a fixer when you don't want to be.
 
 If I were to tell you that her life was a mess before I actually moved in with her, I'd be grossly understating the situation.
 

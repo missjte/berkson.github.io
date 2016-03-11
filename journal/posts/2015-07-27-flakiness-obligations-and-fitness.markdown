@@ -19,7 +19,7 @@ That is so much worse than if I were to have just never made the obligation at a
 
 If I tell you I'm going to do something, I should do it.  If I promise to do something, and I don't follow up or accomplish my tasking, I am hurting you.  I am lying to you.  I am throwing away whatever trust, measly or great, you put into me — that you gifted me, because I'm a fucking flake.^[Relevant: ["When your submissive says 'No'"](http://www.domme-chronicles.com/2011/11/when-your-submissive-says-no/) via [Domme-Chronicles](http://www.domme-chronicles.com/) by [Ferns](http://www.twitter.com/Ferns__)]
 
-### So how do I fix myself?
+## So how do I fix myself?
 
 For my development as a person, I can't keep doing this to myself, I can't keep doing this to **her**.  I'm not the person I want to be, and although Mistress Eiren is a powerful force in my life, it's unfair to expect her to be the force of change on something that she have ought to deserve in the first place.
 
@@ -27,7 +27,7 @@ For my development as a person, I can't keep doing this to myself, I can't keep 
 
 So, I'll start with something familiar, something that I'm used to... working out.
 
-### Emotional & Physical Fitness
+## Emotional & Physical Fitness
 
 The cool thing about this is that I'm literally "working out my problems" and the solution makes me, in my mind, a better submissive all around.  In the same way that you can't weld without metal, you can't work on a problem without going to the root of it.  If I have an issue with obligations, then I need to make obligations to work on... also, I personally believe that one of the best things someone who describes themselves as submissive can do is have a good body and take care of themselves.  This doesn't necessarily mean be ripped, but living a healthy lifestyle and taking care of a body that you ultimately want to surrender.
 
@@ -35,7 +35,7 @@ The cool thing about this is that I'm literally "working out my problems" and th
 
 To top all of this off... when I work out, Mistress Eiren wants to work out too.  For those of you who actually read what I write (one, maybe two of you?) you might have guessed that she has suffered from _pretty severe_ medical issues her entire life.  If I hadn't met her... she **probably would** have been dead.  I changed her life around pretty dramatically, to include bringing an other-than-sedentary lifestyle into our relationship.  Working out together is so special to me, because it's a testament to how far **she** has come and how much we've grown together.
 
-### The Plan
+## The Plan
 
 I'll workout, at a minimum, four days a week.  Two days for strength training and two days for cardio.  Making sure I do at least two of either these is great, because it makes me want to shoot for five days.  Three days of running or three days of lifting is ideal, so it motivates me to schedule out more days to accommodate my goal.
 
@@ -47,7 +47,7 @@ I will post a monthly progress report, that will include my stats (not including
 
 As well as a summery of everything that I've done during the month, how I felt emotionally and physically, and my goals for the next month.
 
-### In conclusion...
+## In conclusion...
 
 Flakiness sucks.  I need to remember that this isn't just for me, but for **Her**. To the people I make promises to, so my word is trusted, so I can be trusted, _so I can be someone **worth** trusting_.
 

@@ -13,7 +13,7 @@ I lack the motivation to do a lot of things in my life, from working out, to edu
 
 This is my attempt to hold myself accountable, to encompass everything in my life that I hold near and dear to me and take responsibility for the things that I can change, starting with my servility and writing.
 
-### What do I know about myself & what am I willing to admit to myself?
+## What do I know about myself & what am I willing to admit to myself?
 
 1.  I am a**(n awful)** submissive
       * I am horrendously inexperienced
