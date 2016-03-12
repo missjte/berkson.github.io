@@ -10,9 +10,8 @@ import           System.Process
 
 import           Control.Monad                   (forM)
 
-import qualified Data.Map                        as M
 import           Data.List                       (intersperse, isSuffixOf)
-import           Data.List.Split                 (splitOn)
+import qualified Data.Map                        as M
 import           Data.Maybe                      (catMaybes)
 
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
@@ -100,25 +99,19 @@ main = do
 
     -- Add Pages
     match "page/*" $ do
-      route   $ indexedPages `composeRoutes` gsubRoute "page/" (const "") `composeRoutes` setExtension "html"
+      route   $ setExtension "html" `composeRoutes`
+                gsubRoute "page/" (const "") `composeRoutes`
+                appendIndex
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "template/default.html" defaultContext
         >>= relativizeUrls
         >>= deIndexUrls
 
-    -- Add Workouts
-    match "workout/*" $ do
-      route   $ directorizeDate `composeRoutes` setExtension "html"
-      compile $ pandocCompiler
-        >>= loadAndApplyTemplate "template/workout.html"    (tagsCtx tags)
-        >>= saveSnapshot "workout"
-        >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
-        >>= relativizeUrls
-        >>= deIndexUrls
-
     -- Add Posts
     match postsPattern $ do
-      route   $ directorizeDate `composeRoutes` setExtension "html"
+      route   $ setExtension "html" `composeRoutes`
+                directorizeDate `composeRoutes`
+                appendIndex
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
         >>= saveSnapshot "content"
@@ -126,23 +119,22 @@ main = do
         >>= relativizeUrls
         >>= deIndexUrls
 
-    -- Generate Fitness Tracker
-    create ["tracker"] $ do
-      route   $ indexedPages `composeRoutes` setExtension "html"
-      compile $ do
-        workouts <- loadAll "workout/*"
-        sorted <- recentFirst workouts
-        itemTpl <- loadBody "template/post-item.html"
-        list <- applyTemplateList itemTpl listCtx sorted
-        makeItem list
-          >>= loadAndApplyTemplate "template/tracker.html" (trackerCtx tags)
-          >>= loadAndApplyTemplate "template/default.html" (trackerCtx tags)
-          >>= relativizeUrls
-          >>= deIndexUrls
+    -- Add Workouts
+    match "workout/*" $ do
+      route   $ setExtension "html" `composeRoutes`
+                directorizeDateAndAuthor `composeRoutes`
+                appendIndex
+      compile $ pandocCompiler
+        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
+        >>= saveSnapshot "workout"
+        >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
+        >>= relativizeUrls
+        >>= deIndexUrls
 
     -- Generate Archive
     create ["archive"] $ do
-      route   $ indexedPages `composeRoutes` setExtension "html"
+      route   $ setExtension "html" `composeRoutes`
+                appendIndex
       compile $ do
         posts <- loadAll postsPattern
         sorted <- recentFirst posts
@@ -154,6 +146,20 @@ main = do
           >>= relativizeUrls
           >>= deIndexUrls
 
+    -- Generate Fitness Tracker
+    create ["tracker"] $ do
+      route   $ setExtension "html" `composeRoutes`
+                appendIndex
+      compile $ do
+        workouts <- loadAll "workout/*"
+        sorted <- recentFirst workouts
+        itemTpl <- loadBody "template/post-item.html"
+        list <- applyTemplateList itemTpl listCtx sorted
+        makeItem list
+          >>= loadAndApplyTemplate "template/archive.html" trackerCtx
+          >>= loadAndApplyTemplate "template/default.html" trackerCtx
+          >>= relativizeUrls
+          >>= deIndexUrls
 
     -- Generate Homepage
     create ["index.html"] $ do
@@ -216,20 +222,20 @@ listCtx = mconcat
   , defaultContext
   ]
 
-trackerCtx :: Tags -> Context String
-trackerCtx tags = mconcat
-  [ constField "title" "Fitness Tracker"
-  , gitTag "git"
-  , historyTag "history"
-  , defaultContext
-  ]
-
 archiveCtx :: Tags -> Context String
 archiveCtx tags = mconcat
   [ constField "title" "Archive"
   , gitTag "git"
   , historyTag "history"
   , field "taglist" (\_ -> renderTagBlock tags)
+  , defaultContext
+  ]
+
+trackerCtx :: Context String
+trackerCtx = mconcat
+  [ constField "title" "Fitness Tracker"
+  , gitTag "git"
+  , historyTag "history"
   , defaultContext
   ]
 
@@ -317,25 +323,17 @@ historyTag key = field key $ \item -> do
 
   return . renderHtml $ H.code ! A.class_ "history" $ H.a ! A.href (toValue history) $ "History"
 
-routeAuthor :: Routes
-routeAuthor = metadataRoute $ \md -> customRoute $
-  (md M.! "author" </>) . toFilePath
-
 directorizeDate :: Routes
-directorizeDate = customRoute (directorize . toFilePath)
-  where
-    directorize path = dirs ++ "/index" ++ ext
-      where
-        (dirs, ext) = splitExtension $ concat $
-          intersperse "/" date ++ ["/"] ++ intersperse "-" rest
-        (date, rest) = splitAt 3 $ splitOn "-" path
+directorizeDate = gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ replaceAll "-" (const "/")
 
-indexedPages :: Routes
-indexedPages = customRoute (index . toFilePath)
-  where
-    index path = dirs ++ "/index" ++ ext
-      where
-        (dirs, ext) = splitExtension path
+directorizeDateAndAuthor :: Routes
+directorizeDateAndAuthor = metadataRoute $ \md ->
+    gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ \s ->
+        replaceAll "-" (const "/") s ++ (md M.! "author") ++ "/"
+
+appendIndex :: Routes
+appendIndex = customRoute $
+    (\(p, e) -> p </> "index" <.> e) . splitExtension . toFilePath
 
 stripIndex :: String -> String
 stripIndex url = if "index.html" `isSuffixOf` url && elem (head url) ("/." :: String)

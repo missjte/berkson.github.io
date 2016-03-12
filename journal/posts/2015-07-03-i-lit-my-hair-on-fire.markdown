@@ -1,6 +1,8 @@
 ---
 title: I lit my hair on fire
-tags: berkson, random, story time, first year, past
+author: berkson
+tags: random, story time, first year, past
+comments: true
 ---
 
 I've never really been one for drinking.

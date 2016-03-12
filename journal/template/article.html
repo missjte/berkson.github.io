@@ -1,17 +1,17 @@
 <main>
   <article>
     <h2>$title$</h2>
-    <p><strong>Posted on</strong> <time>$date$</time> &mdash; <strong>Tagged with</strong>: $prettytags$</p>
+    <p><strong>Posted on</strong> <time>$date$</time>$if(author)$ by <strong style="text-transform:capitalize">$author$</strong>$endif$$if(tags)$ &mdash; <strong>Tagged with</strong>: $prettytags$$endif$</p>
 
 $body$
 
   </article>
-  <hr>
+  $if(comments)$<hr>
   <footer>
     <div id="disqus_thread"></div>
     <script>
       var disqus_config = function () {
-        this.page.url = '$host$$url$';
+        this.page.url = '$host$' + '$url$';
 
         this.page.identifier = '$path$';
         this.page.title = '$title$';
@@ -24,5 +24,5 @@ $body$
       })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-  </footer>
+  </footer>$endif$
 </main>

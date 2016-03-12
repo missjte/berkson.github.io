@@ -1,6 +1,8 @@
 ---
 title: People I know scare me
-tags: berkson, reflection, friends, fear, self-worth, first year
+author: berkson
+tags: reflection, friends, fear, self-worth, first year
+comments: true
 ---
 
 My best friends have always been strangers. People I’ve met in passing… on the street, in the Airport, on a bus… it hasn’t really mattered where, but Mistress Eiren tells me that I seem genuinely happy when I meet someone new, that I have a way of talking to strangers captivates them. She tells me that I’m tall and attractive, I’m attentive and understanding, soft when it’s needed and loud when it’s funny, and that I’m oh so innocent and engulfed by their story’s… and, bless her heart, that my eyes sparkle like sapphires, and that people can’t stand but to stare into them.

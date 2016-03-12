@@ -176,6 +176,7 @@ footer p {
 }
 
 .taglist {
+  float: center;
   text-align: center;
 }
 

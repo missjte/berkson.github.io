@@ -1,6 +1,8 @@
 ---
 title: Flakiness, Obligations, &amp; Fitness
-tags: berkson, fitness, femdom, submissive, self-worth, first year
+author: berkson
+tags: fitness, femdom, submissive, self-worth, first year
+comments: true
 ---
 
 > "I don't want to work out today..." — **Me**, _every single day ever_.

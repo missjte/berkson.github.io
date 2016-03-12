@@ -1,6 +1,8 @@
 ---
 title: I am an argonaut
-tags: berkson, reflection, argonaut
+author: berkson
+tags: reflection, argonaut
+comments: true
 ---
 
 You know, it's funny. There are stories about people, authors, or artists who stumble upon inspiration and suddenly a story has to follow it.

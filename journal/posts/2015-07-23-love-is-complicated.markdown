@@ -1,6 +1,8 @@
 ---
 title: Love is complicated
-tags: berkson, dominant directed diary, love, femdom, submissive, self-worth, first year
+author: berkson
+tags: dominant directed diary, love, femdom, submissive, self-worth, first year
+comments: true
 ---
 **Context**: I was ordered to write a response to questions Mistress Eiren had left in my email as a timed assignment!  Really exciting!  I had three hours and was leashed to the bed with the laptop!  I hope you enjoy!
 

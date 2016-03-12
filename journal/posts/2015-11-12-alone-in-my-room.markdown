@@ -1,6 +1,8 @@
 ---
 title: Alone in my room
-tags: story time, femdom, berkson, eiren, past, second year
+author: berkson
+tags: story time, femdom, past, second year
+comments: true
 ---
 
 It was dark again and it hadn't stopped surprising me yet.  I could hear the birds and the freeway in the distance, the bustling of life from behind the now blackened windows, and it was perfect and cold and it was dark.

@@ -1,6 +1,8 @@
 ---
 title: Disabilities &amp; Submission - Part 1
-tags: second year, berkson, eiren, past
+author: berkson
+tags: second year, past
+comments: true
 ---
 
 ## Warning

@@ -1,6 +1,8 @@
 ---
 title: Atychiphobia
-tags: berkson, reflection, friends, fear, self-worth, second year
+author: berkson
+tags: reflection, friends, fear, self-worth, second year
+comments: true
 ---
 
 It's funny to me that, at twenty-four, for the first time in my life I can say that I have friends or people that I can turn to for advice, to whine or complain at, or even... come back to.

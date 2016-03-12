@@ -1,6 +1,8 @@
 ---
 title: Your wounds don&#39;t make you any less beautiful
-tags: second year, berkson, eiren, picture, sinful sunday
+author: berkson
+tags: second year, picture, sinful sunday
+comments: true
 ---
 
 For those of you who follow me on Twitter, I think I've made it pretty clear Eiren has had a very hard life...

@@ -1,6 +1,8 @@
 ---
 title: Hiding behind a mask
-tags: second year, berkson, eiren, picture, sinful sunday
+author: berkson
+tags: second year, picture, sinful sunday
+comments: true
 ---
 
 The mask has been with her all of her life, she was born with it, and it has always been there for her to hide behind when she needed protection, when she needed space, and when she needed to be alone.
