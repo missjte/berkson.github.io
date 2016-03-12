@@ -7,7 +7,7 @@ author: Eiren
   <thead>
   <tr>
   <th>Mood</th>
-  <th>Weight</th>
+  <th>Weight in LBs</th>
   <th>BMI %</th>
   <th>Fasted?</th>
   <th>Pre-workout?</th>
@@ -17,7 +17,7 @@ author: Eiren
   <tr>
   <td>Happy</td>
   <td>294.0</td>
-  <td>44.0%</td>
+  <td>44.0</td>
   <td>No</td>
   <td>Yes</td>
   </tr>
