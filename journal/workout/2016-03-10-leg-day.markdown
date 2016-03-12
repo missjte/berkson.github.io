@@ -1,6 +1,6 @@
 ---
 title: Leg day
-author: Eiren
+author: eiren
 comments: true
 ---
 
