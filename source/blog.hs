@@ -10,6 +10,7 @@ import           System.Process
 
 import           Control.Monad                   (forM)
 
+import qualified Data.Map                        as M
 import           Data.List                       (intersperse, isSuffixOf)
 import           Data.List.Split                 (splitOn)
 import           Data.Maybe                      (catMaybes)
@@ -315,6 +316,10 @@ historyTag key = field key $ \item -> do
   let history = "https://github.com/berkson/berkson.github.io/commits/source/" ++ fp
 
   return . renderHtml $ H.code ! A.class_ "history" $ H.a ! A.href (toValue history) $ "History"
+
+routeAuthor :: Routes
+routeAuthor = metadataRoute $ \md -> customRoute $
+  (md M.! "author" </>) . toFilePath
 
 directorizeDate :: Routes
 directorizeDate = customRoute (directorize . toFilePath)

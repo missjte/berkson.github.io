@@ -1,0 +1,83 @@
+---
+title: Leg day
+author: Eiren
+---
+
+<table class="u-full-width">
+  <thead>
+  <tr>
+  <th>Mood</th>
+  <th>Weight</th>
+  <th>BMI %</th>
+  <th>Fasted?</th>
+  <th>Pre-workout?</th>
+  </tr>
+  <thead>
+  <tbody>
+  <tr>
+  <td>Happy</td>
+  <td>294.0</td>
+  <td>44.0%</td>
+  <td>No</td>
+  <td>Yes</td>
+  </tr>
+  </tbody>
+</table>
+
+Warm-up **Elliptical HIIT** for **20 minutes** & stretches.<br>
+**Spin Class** for **60 minutes**<br>
+
+<table class="u-full-width">
+  <thead>
+  <tr>
+  <th>Nomenclature</th>
+  <th>Weight in LBs</th>
+  <th>Sets</th>
+  <th>Reps</th>
+  </tr>
+  <thead>
+  <tbody>
+  <tr>
+  <td>[Smith Machine Squat](http://www.bodybuilding.com/exercises/detail/view/name/smith-machine-squat)</td>
+  <td>30</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Smith Machine Stiff-Legged Deadlift](http://www.bodybuilding.com/exercises/detail/view/name/smith-machine-stiff-legged-deadlift)</td>
+  <td>45</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Leg Press](http://www.bodybuilding.com/exercises/detail/view/name/leg-press)</td>
+  <td>90</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Calf Press On the Leg Press Machine](http://www.bodybuilding.com/exercises/detail/view/name/calf-press-on-the-leg-press-machine)</td>
+  <td>90</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Thigh Adductor](http://www.bodybuilding.com/exercises/detail/view/name/thigh-adductor)</td>
+  <td>175</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Thigh Abductor](http://www.bodybuilding.com/exercises/detail/view/name/thigh-abductor)</td>
+  <td>130</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  <tr>
+  <td>[Seated Calf Raise](http://www.bodybuilding.com/exercises/detail/view/name/seated-calf-raise)</td>
+  <td>45</td>
+  <td>4</td>
+  <td>12<td>
+  </tr>
+  </tbody>
+</table>
