@@ -126,8 +126,8 @@ Very basic arm stretches, no real warm-up.<br>
   <tr>
   <td>Final</td>
   <td>Bodyweight</td>
-  <td>15</td>
   <td>4</td>
+  <td>15</td>
   </tr>
   </tbody>
   <thead>
