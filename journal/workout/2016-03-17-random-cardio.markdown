@@ -1,5 +1,5 @@
 ---
-title: The Class of DEATH
+title: Random Cardio
 author: eiren
 comments: true
 ---
