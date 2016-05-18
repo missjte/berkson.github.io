@@ -39,7 +39,7 @@ So I kept my dirty little secrets and I was so, so scared.  Every moment that I 
 
 All I could think about was her finding out my secrets.
 
-How old I really was... what I was really doing during the day while she had fun and bragged about her to her friends...
+How old I really was... what I was really doing during the day while she had fun and bragged about me to her friends...
 
 What I was doing.
 
@@ -84,3 +84,5 @@ That I couldn't and wouldn't always be able to keep *who I was* separate from th
 And that I cared about her, far too much, to ever exclude her from the real me.  Even when it was scary and it hurt, more than anything had before.
 
 I know that you'll find a way to balance, regardless of the decision you decide to make.
+
+***Berkson***
