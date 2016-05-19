@@ -25,7 +25,7 @@ In any case, I was 16 and she was 29.
 
 I didn't know how old she was at the time, but I knew that she was an adult.  I wasn't **completely** an idiot, not enough to jeopardize my own identity... just enough to jeopardize the livelihood of someone I was finding myself to care about.  So still a pretty fucking huge idiot.
 
-For all Eiren knew, I was an establish, well paid, attractive, moderately intelligent 22 year old who spoke sweet things to her and - for the first time in her life - made her feel genuinely happy.
+For all Eiren knew, I was an established, well paid, attractive, moderately intelligent 22 year old who spoke sweet things to her and - for the first time in her life - made her feel genuinely happy.
 
 I called her Mistress, I called her Ma'am, I called her Miss, Madame, Goddess... and I called her Eiren.  I'd skip school, something I was already doing of course, but with the express intent of spending the entire day on Skype and in SecondLife with her.
 
