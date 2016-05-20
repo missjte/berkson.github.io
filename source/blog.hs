@@ -113,9 +113,10 @@ main = do
                 directorizeDate `composeRoutes`
                 appendIndex
       compile $ pandocCompiler
-        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/content.html"    (tagsCtx tags)
         >>= saveSnapshot "content"
-        >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/default.html"    (tagsCtx tags)
         >>= relativizeUrls
         >>= deIndexUrls
 
@@ -125,9 +126,9 @@ main = do
                 directorizeDateAndAuthor `composeRoutes`
                 appendIndex
       compile $ pandocCompiler
-        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/content.html"    (tagsCtx tags)
         >>= saveSnapshot "workout"
-        >>= loadAndApplyTemplate "template/default.html" (tagsCtx tags)
+        >>= loadAndApplyTemplate "template/default.html"    (tagsCtx tags)
         >>= relativizeUrls
         >>= deIndexUrls
 
