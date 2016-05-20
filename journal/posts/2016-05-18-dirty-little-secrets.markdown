@@ -77,7 +77,7 @@ All my dirty little secrets were gone, and even though they could have broken an
 
 <hr>
 
-*My friend*, one of the most important lessons I ever learned was that I could not keep secrets from Eiren...
+*My friend*, one of the most important lessons I ever learned was that if I wanted my relationship to last, I wouldn't be able to keep secrets...
 
 That I couldn't and wouldn't always be able to keep *who I was* separate from the life that I was actively living, even if much of what I said to her as someone else was more **me** than I had ever actively been before.
 
