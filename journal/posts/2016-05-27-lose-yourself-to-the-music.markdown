@@ -2,6 +2,7 @@
 title: Lose yourself to the music
 author: berkson
 tags: argonaut, fear, love, femdom, philosophy, paper submissive
+comments: true 
 ---
 
 You know, there are a ton of things that change who we are.
