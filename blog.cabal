@@ -1,5 +1,5 @@
 name:                   PrickYourFinger
-version:                2.5.4
+version:                3.0.0
 synopsis:               Personal journal of Eiren & Berkson
 homepage:               prickyourfinger.org
 license:                OtherLicense
@@ -20,6 +20,8 @@ executable blog
   default-language:     Haskell2010
   build-depends:
                         base                                 ,
+                        aeson                  >= 0.11.2.0   ,
+                        unordered-containers   >= 0.2.7.1    ,
                         containers             >= 0.5.5.1    ,
                         hakyll                 >= 4.5        ,
                         network-uri            >= 2.6.0.1    ,

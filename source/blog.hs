@@ -11,7 +11,6 @@ import           System.Process
 import           Control.Monad                   (forM)
 
 import           Data.List                       (intersperse, isSuffixOf)
-import qualified Data.Map                        as M
 import           Data.Maybe                      (catMaybes)
 
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
@@ -329,8 +328,11 @@ directorizeDate = gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ replaceAll "-" (con
 
 directorizeDateAndAuthor :: Routes
 directorizeDateAndAuthor = metadataRoute $ \md ->
-    gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ \s ->
-        replaceAll "-" (const "/") s ++ (md M.! "author") ++ "/"
+  case lookupString "author" md of
+      Just author ->
+          gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ \s ->
+              replaceAll "-" (const "/") s ++ author ++ "/"
+      Nothing -> error "The author metadata field is missing."
 
 appendIndex :: Routes
 appendIndex = customRoute $

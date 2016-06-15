@@ -8,7 +8,8 @@ install:
 
 watch:
 	cabal build
-	./blog watch
+	./blog build
+	(cd generated/deploy/ && python3 -m http.server 4000)
 
 clean:
 	cabal clean
