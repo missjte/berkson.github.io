@@ -5,9 +5,11 @@ tags: writing, prompts, friends, fun, educational
 comments: true
 ---
 
-I haven't been in 4chan in a few years now and decided to lurk for a few minutes, and one creative soul had posted this beautiful prompt:
+When I was younger, I spent a lot of time on 4chan for, uhh... various reasons (porn), but sometimes good things popped up every now and then that got me thinking.  Today was the first time that I'd visited the site in a few years, and the first thread that I opened actually had something pretty cool in it! **A writing prompt**!  The subject was *Slavery Worldbuilding*, and was a little bit rough, but I wanted to share it with you, my friends, to maybe be inspired a bit like I've been!
 
-# How would you set up this simulation?
+<hr>
+
+**How would you set up this simulation?**
 
 You have been selected to be an early member of a space colonization effort.  You choose to accept.  You will be put into cryogenic sleep for the duration of the journey, which will likely take thousands of years in which you will not age.  However, during the transit, your consciousness will be transported to a full-dive VR simulation to intellectually stimulate you however you desire.
 
@@ -65,7 +67,7 @@ When you start the game, you get the option to create your character, which has 
 
 **How do you build your character? What options do you pick for the world? Be creative!**
 
-#
+<hr>
 
 I'm totally going to write about this, I love it... and I hope that a few of you, dear readers, will join me in making their versions of this!
 
