@@ -1,5 +1,5 @@
 ---
-title: BDSM Worldbuilding
+title: Femdom Worldbuilding
 author: berkson
 tags: writing, prompts, friends, fun, educational
 comments: true
