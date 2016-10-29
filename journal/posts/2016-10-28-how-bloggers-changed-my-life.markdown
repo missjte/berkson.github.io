@@ -2,6 +2,7 @@
 title: How bloggers changed my life
 author: berkson
 tags: growing up, adulting, stress, role models, mentors, friends
+comments: true
 ---
 
 The first was [Bitchy Jones's Diary](https://bitchyjones.wordpress.com/).  To say anything other than "If I had not found this blog, my life would have turned out differently" would be a blatent lie.  It's not that the blogs that came after were less important to me, because they *were not*, it's just that if I hadn't had found *Bitchy Jones*, I would have not found the other bloggers that had such a high impact on who I am now in my relationship and life.
