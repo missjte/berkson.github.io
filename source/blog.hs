@@ -5,13 +5,17 @@ import           Hakyll
 import           Site.Sitemap
 
 import           System.Environment
+import           System.FilePath                 (takeFileName)
 import           System.FilePath.Posix
 import           System.Process
 
+import           Control.Applicative             (Alternative (..))
 import           Control.Monad                   (forM)
 
-import           Data.List                       (intersperse, isSuffixOf)
+import           Data.List                       (intersperse, intercalate, isSuffixOf, sortBy)
 import           Data.Maybe                      (catMaybes)
+import           Data.Time.Clock                 (UTCTime)
+import           Data.Time.Format                (defaultTimeLocale ,parseTimeM)
 
 import           Text.Blaze.Html                 (toHtml, toValue, (!))
 import           Text.Blaze.Html.Renderer.String (renderHtml)
@@ -38,6 +42,7 @@ hakyllConfig = defaultConfiguration
 
 atomConfig :: FeedConfiguration
 atomConfig = FeedConfiguration
+
   { feedTitle                 = "Prick Your Finger"
   , feedDescription           = "Latest blog posts from Eiren &amp; Berkson &#64; PrickYourFinger.org!"
   , feedAuthorName            = "Eiren &amp; Berkson"
@@ -111,13 +116,18 @@ main = do
       route   $ setExtension "html" `composeRoutes`
                 directorizeDate `composeRoutes`
                 appendIndex
-      compile $ pandocCompiler
-        >>= loadAndApplyTemplate "template/content.html"    (tagsCtx tags)
-        >>= saveSnapshot "content"
-        >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
-        >>= loadAndApplyTemplate "template/default.html"    (tagsCtx tags)
-        >>= relativizeUrls
-        >>= deIndexUrls
+      compile $ do
+        let postContext =
+                field "nextPost" nextPostUrl `mappend`
+                field "prevPost" previousPostUrl `mappend`
+                defaultContext
+        pandocCompiler
+                >>= loadAndApplyTemplate "template/content.html"    (tagsCtx tags)
+                >>= saveSnapshot "content"
+                >>= loadAndApplyTemplate "template/article.html"    (tagsCtx tags)
+                >>= loadAndApplyTemplate "template/default.html"    (tagsCtx tags)
+                >>= relativizeUrls
+                >>= deIndexUrls
 
     -- Add Workouts
     match "workout/*" $ do
@@ -322,6 +332,49 @@ historyTag key = field key $ \item -> do
   let history = "https://github.com/berkson/berkson.github.io/commits/source/" ++ fp
 
   return . renderHtml $ H.code ! A.class_ "history" $ H.a ! A.href (toValue history) $ "History"
+
+previousPostUrl :: Item String -> Compiler String
+previousPostUrl post = do
+      posts <- getMatches "posts/**.markdown"
+      let ident = itemIdentifier post
+          sortedPosts = sortIdentifiersByDate posts
+          ident' = itemBefore sortedPosts ident
+      case ident' of
+          Just i -> (fmap (maybe empty $ toUrl) . getRoute) i
+          Nothing -> empty
+
+nextPostUrl :: Item String -> Compiler String
+nextPostUrl post = do
+      posts <- getMatches "posts/**.markdown"
+      let ident = itemIdentifier post
+          sortedPosts = sortIdentifiersByDate posts
+          ident' = itemAfter sortedPosts ident
+      case ident' of
+          Just i -> (fmap (maybe empty $ toUrl) . getRoute) i
+          Nothing -> empty
+
+sortIdentifiersByDate :: [Identifier] -> [Identifier]
+sortIdentifiersByDate identifiers =
+    reverse $ sortBy byDate identifiers
+        where
+          byDate id1 id2 =
+            let fn1 = takeFileName $ toFilePath id1
+                fn2 = takeFileName $ toFilePath id2
+                myTime fn = parseTimeM True defaultTimeLocale "%Y-%m-%d" $
+                        intercalate "-" $ take 3 $ splitAll "-" fn
+            in compare ((myTime fn1) :: Maybe UTCTime) ((myTime fn2) :: Maybe UTCTime)
+
+itemAfter :: Eq a => [a] -> a -> Maybe a
+itemAfter xs x =
+    lookup x $ zip xs (tail xs)
+
+itemBefore :: Eq a => [a] -> a -> Maybe a
+itemBefore xs x =
+    lookup x $ zip (tail xs) xs
+
+urlOfPost :: Item String -> Compiler String
+urlOfPost =
+    fmap (maybe empty $ toUrl) . getRoute . itemIdentifier
 
 directorizeDate :: Routes
 directorizeDate = gsubRoute "/[0-9]{4}-[0-9]{2}-[0-9]{2}-" $ replaceAll "-" (const "/")

@@ -6,6 +6,16 @@ $body$
 
 </article>
 
+<ul class="pager">
+  $if(prevPost)$<li class="previous">
+    <a href="$prevPost$" data-toggle="tooltip" data-placement="top" title="Previous Post">&larr; Previous Post</a>
+  </li>$endif$
+
+  $if(nextPost)$<li class="next">
+    <a href="$nextPost$" data-toggle="tooltip" data-placement="top" title="Next Post">Next Post &rarr;</a>
+  </li>$endif$
+</ul>
+
 $if(comments)$<hr>
 <footer>
   <div id="disqus_thread"></div>
