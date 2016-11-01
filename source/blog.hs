@@ -117,7 +117,7 @@ main = do
                 directorizeDate `composeRoutes`
                 appendIndex
       compile $ do
-        let postContext =
+        let postCtx =
                 field "nextPost" nextPostUrl `mappend`
                 field "prevPost" previousPostUrl `mappend`
                 defaultContext
