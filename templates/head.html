@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <link href="/favicon.png" rel="icon" type="image/png">
+    <link href="/feed.xml" rel="alternate" type="application/atom+xml">
+    <link href="http://prickyourfinger.org{{url}}" rel="canonical">
+    <meta charset="utf-8"> <!-- TODO: or do not set it and escape everything? -->
+    {{if synopsis}}
+    <meta name="description" content="{{synopsis}}">
+    {{end}}
+    <meta name="author" content="Prick Your Finger">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- TODO: is this still required in 2015? -->
+    <style>
+      {{include fonts.css}}
+      {{include page.css}}
+      {{if math}} {{include math.css}} {{end}}
+    </style>
+  </head>

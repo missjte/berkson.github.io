@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Prick Your Finger</title>
+  <id>http://prickyourfinger.org/</id>
+  <icon>/favicon.png</icon>
+  <link href="http://prickyourfinger.org/blog" rel="alternate"/>
+  <link href="http://prickyourfinger.org/feed.xml" rel="self"/>
+  <author>
+    <name>Prick Your Finger</name>
+  </author>
+  <updated>{{updated}}T00:00:00Z</updated>
+  {{foreach post}}
+  <entry>
+    <title>{{title}}</title>
+    <id>http://prickyourfinger.org{{url}}</id>
+    <link href="http://prickyourfinger.org{{url}}" rel="alternate"/>
+    <updated>{{short-date}}T00:00:00Z</updated>
+    <published>{{short-date}}T00:00:00Z</published>
+    <summary>{{synopsis}}</summary>
+  </entry>
+  {{end}}
+</feed>

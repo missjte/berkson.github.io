@@ -1,0 +1,30 @@
+name:          blog
+version:       3.0.0
+synopsis:      Static site generator for my personal blog
+homepage:      http://prickyourfinger.org
+author:        Prick Your Finger <dev@veniogames.com>
+copyright:     Prick Your Finger 2015
+license:       GPL-3
+license-file:  licence
+build-type:    Simple
+cabal-version: >= 1.10
+
+executable blog
+  main-is:          Main.hs
+  hs-source-dirs:   src
+  other-modules:    Html, Image, Minification, Post, Template, Type
+  default-language: Haskell2010
+  -- For the run time options, use 4 threads (N4), use a heap of 64 MiB (H64M),
+  -- and divide the heap into chunks of 4 MiB that threads can use (n4M).
+  ghc-options:      -Wall -fwarn-tabs -O3 -threaded -rtsopts "-with-rtsopts=-N4 -H64M -n4M"
+
+  build-depends: base              >= 4.8    && < 4.10
+               , containers        >= 0.5    && < 0.6
+               , directory         >= 1.2    && < 1.3
+               , filepath          >= 1.4    && < 1.5
+               , JuicyPixels       >= 3.2    && < 3.3
+               , pandoc            >= 1.16   && < 1.18
+               , process           >= 1.2.3  && < 1.5
+               , tagsoup           >= 0.13.4 && < 0.15
+               , text              >= 1.2    && < 1.3
+               , time              >= 1.5    && < 1.7

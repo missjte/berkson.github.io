@@ -1,0 +1,70 @@
+/* For monospace I use the font Inconsolata, designed by Raph Levien,
+ * released under the SIL Open Font License. It is available from
+ * http://levien.com/type/myfonts/inconsolata.html.
+ *
+ * For other text, I use the fonts Calluna and Calluna Sans, designed by Jos
+ * Buivenga, issued by Exljbris. The regular faces of these fonts are available
+ * free of charge. See http://www.exljbris.com/calluna.html.
+ *
+ * See the file fonts/readme.md in this repository for more details. */
+
+{{if mono-font}}
+@font-face
+{
+  font-family: Inconsolata;
+  src: url(/fonts/{{page-id}}m.woff2) format("woff2"),
+       url(/fonts/{{page-id}}m.woff)  format("woff");
+}
+{{end}}
+
+@font-face
+{
+  font-family: Calluna Sans;
+  src: url(/fonts/{{page-id}}r.woff2) format("woff2"),
+       url(/fonts/{{page-id}}r.woff)  format("woff");
+}
+
+{{if bold-font}}
+@font-face
+{
+  font-family: Calluna Sans;
+  font-weight: bold;
+  src: url(/fonts/{{page-id}}b.woff2) format("woff2"),
+       url(/fonts/{{page-id}}b.woff)  format("woff");
+}
+{{end}}
+
+{{if italic-font}}
+@font-face
+{
+  font-family: Calluna Sans;
+  font-style: italic;
+  src: url(/fonts/{{page-id}}i.woff2) format("woff2"),
+       url(/fonts/{{page-id}}i.woff)  format("woff");
+}
+{{end}}
+
+@font-face
+{
+  font-family: Calluna;
+  src: url(/fonts/{{page-id}}sr.woff2) format("woff2"),
+       url(/fonts/{{page-id}}sr.woff)  format("woff");
+}
+
+@font-face
+{
+  font-family: Calluna;
+  font-weight: bold;
+  src: url(/fonts/{{page-id}}sb.woff2) format("woff2"),
+       url(/fonts/{{page-id}}sb.woff)  format("woff");
+}
+
+{{if serif-italic-font}}
+@font-face
+{
+  font-family: Calluna;
+  font-style: italic;
+  src: url(/fonts/{{page-id}}si.woff2) format("woff2"),
+       url(/fonts/{{page-id}}si.woff)  format("woff");
+}
+{{end}}
