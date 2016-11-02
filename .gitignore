@@ -1,6 +1,7 @@
 # Build output
 .stack-work/
 dist/
+deploy/
 
 # Cabal sandbox
 .cabal-sandbox/
@@ -16,3 +17,6 @@ cabal.sandbox.config
 
 # Generated blog output
 out/
+
+# VPS Script
+vps.sh

@@ -16,7 +16,7 @@ type Tag = Html.Tag
 -- Removes the first character of a string if that character is whitespace
 stripBegin :: String -> String
 stripBegin []      = []
-stripBegin (c:str) = if (isSpace c) then str else c:str
+stripBegin (c:str) = if isSpace c then str else c:str
 
 -- Removes the last character of a string if that character is whitespace
 stripEnd :: String -> String
@@ -25,27 +25,27 @@ stripEnd = reverse . stripBegin . reverse
 -- Collapses adjacent whitespace to a single whitespace character.
 -- (The appended "x" zips with the last character to ensure it is not dropped.)
 mergeWhitespace :: String -> String
-mergeWhitespace str = fmap fst $ filter shouldKeep $ zip str $ (tail str) ++ "x"
-  where shouldKeep (a, b) = not $ (isSpace a) && (isSpace b)
+mergeWhitespace str = fmap fst $ filter shouldKeep $ zip str $ tail str ++ "x"
+  where shouldKeep (a, b) = not $ isSpace a && isSpace b
 
 mapWithPrevious :: (Maybe a -> a -> b) -> [a] -> [b]
-mapWithPrevious f xs = fmap (uncurry f) $ zip (Nothing : fmap Just xs) xs
+mapWithPrevious f xs = uncurry f <$> zip (Nothing : fmap Just xs) xs
 
 mapWithNext :: (a -> Maybe a -> b) -> [a] -> [b]
-mapWithNext f xs = fmap (uncurry f) $ zip xs ((tail $ fmap Just xs) ++ [Nothing])
+mapWithNext f xs = uncurry f <$> zip xs (tail (fmap Just xs) ++ [Nothing])
 
 filterWithPrevious :: (Maybe a -> a -> Bool) -> [a] -> [a]
 filterWithPrevious f xs = fmap snd . filter (uncurry f) $ zip (Nothing : fmap Just xs) xs
 
 filterWithNext :: (a -> Maybe a -> Bool) -> [a] -> [a]
-filterWithNext f xs = fmap fst . filter (uncurry f) $ zip xs ((tail $ fmap Just xs) ++ [Nothing])
+filterWithNext f xs = fmap fst . filter (uncurry f) $ zip xs (tail (fmap Just xs) ++ [Nothing])
 
 -- Determines for every character whether it is inside a /* */ comment.
 identifyComments :: String -> [Bool]
 identifyComments = identify False
-  where identify _ ('/' : '*' : more) = True : True : (identify True more)
-        identify _ ('*' : '/' : more) = True : True : (identify False more)
-        identify s (_ : xs)           = s : (identify s xs)
+  where identify _ ('/' : '*' : more) = True : True : identify True more
+        identify _ ('*' : '/' : more) = True : True : identify False more
+        identify s (_ : xs)           = s : identify s xs
         identify _ []                 = []
 
 -- Removes /* */ comments.
@@ -56,7 +56,7 @@ stripCssComments css = fmap fst $ filter (not . snd) $ zip css (identifyComments
 -- parentheses, or after an angle bracket.
 stripCssAfter :: String -> String
 stripCssAfter = filterWithPrevious shouldKeep
-  where shouldKeep (Just p) c = not $ (isSpace c) && (p `elem` ",:;{}()>")
+  where shouldKeep (Just p) c = not $ isSpace c && (p `elem` ",:;{}()>")
         shouldKeep _ _        = True
 
 -- Removes whitespace before a curly bracket or angle bracket, and the last
@@ -82,7 +82,7 @@ minifyCss = stripBegin . stripEnd
 -- separate words.)
 applyTagsExceptPre :: ([Tag] -> [Tag]) -> [Tag] -> [Tag]
 applyTagsExceptPre = Html.applyTagsWhere $ not . (Html.isPre `orFns` Html.isH1)
-  where orFns f g x = (f x) || (g x)
+  where orFns f g x = f x || g x
 
 -- Applies f to all tags except when the tag is inside a <pre> tag.
 mapTagsExceptPre :: (Tag -> Tag) -> [Tag] -> [Tag]
@@ -99,12 +99,12 @@ mapTagsNextExceptPre f = applyTagsExceptPre $ mapWithNext f
 -- Applies a function to the text of a tag if the other tag exists and
 -- satisfies a condition.
 mapTextIf :: (Tag -> Bool) -> Maybe Tag -> (String -> String) -> Tag -> Tag
-mapTextIf cond (Just other) f tag = if (cond other) then Html.mapText f tag else tag
+mapTextIf cond (Just other) f tag = if cond other then Html.mapText f tag else tag
 mapTextIf _    Nothing      _ tag = tag
 
 -- Strips whitespace after an opening tag.
 stripAfterOpen :: Maybe Tag -> Tag -> Tag
-stripAfterOpen prev tag = mapTextIf S.isTagOpen prev stripBegin tag
+stripAfterOpen prev = mapTextIf S.isTagOpen prev stripBegin
 
 -- Strips whitespace before a closing tag.
 stripBeforeClose :: Tag -> Maybe Tag -> Tag
@@ -118,7 +118,7 @@ stripBeforeOpen tag next = mapTextIf shouldStripBefore next stripEnd tag
 
 -- Strips whitespace after a closing tag if the tag is not inline.
 stripAfterClose :: Maybe Tag -> Tag -> Tag
-stripAfterClose prev tag = mapTextIf shouldStripAfter prev stripBegin tag
+stripAfterClose prev = mapTextIf shouldStripAfter prev stripBegin
   where shouldStripAfter (S.TagClose name) = not $ isInline name
         shouldStripAfter _ = False
 
@@ -132,7 +132,7 @@ isInline t = t `elem` ["a", "abbr", "code", "em", "span", "strong", "sub", "sup"
 removeComments :: [Tag] -> [Tag]
 removeComments = merge . filter (not . S.isTagComment)
   where merge (S.TagText u : S.TagText v : more) = merge $ (S.TagText $ u ++ v) : more
-        merge (tag : more) = tag : (merge more)
+        merge (tag : more) = tag : merge more
         merge [] = []
 
 -- Minifies the contents of all <style> tags.
@@ -151,12 +151,12 @@ minifyStyleTags = Html.mapTagsWhere Html.isStyle $ Html.mapText minifyCss
 --  Whitespace inside <pre> is left untouched.
 stripTags :: [Tag] -> [Tag]
 stripTags =
-  (mapTagsPreviousExceptPre stripAfterClose) .
-  (mapTagsNextExceptPre stripBeforeOpen) .
-  (mapTagsNextExceptPre stripBeforeClose) .
-  (mapTagsPreviousExceptPre stripAfterOpen) .
-  (mapTagsExceptPre $ Html.mapText mergeWhitespace) .
-  (removeComments)
+  mapTagsPreviousExceptPre stripAfterClose .
+  mapTagsNextExceptPre stripBeforeOpen .
+  mapTagsNextExceptPre stripBeforeClose .
+  mapTagsPreviousExceptPre stripAfterOpen .
+  mapTagsExceptPre (Html.mapText mergeWhitespace) .
+  removeComments
 
 -- Minifies html by removing excess whitespace and comments, and by minifying
 -- inline stylesheets.

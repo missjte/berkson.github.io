@@ -29,13 +29,13 @@ makeDimensions img = [ ("width",  show $ dynamicMap imageWidth  img)
 -- adds width and height attributes.
 addDimensions :: FilePath -> Attributes -> IO Attributes
 addDimensions imgDir attrs = fmap (attrs ++) dimensions
-  where imgPath    = imgDir </> (takeFileName $ getSrc attrs)
+  where imgPath    = imgDir </> takeFileName (getSrc attrs)
         dimensions = fmap (either error makeDimensions) (readImage imgPath)
 
 -- Maps an IO-performing function over the attributes of all <img> tags.
 mapImgAttributes :: (Attributes -> IO Attributes) -> [Html.Tag] -> IO [Html.Tag]
 mapImgAttributes f = mapM mapTag
-  where mapTag (S.TagOpen "img" attrs) = fmap (S.TagOpen "img") $ f attrs
+  where mapTag (S.TagOpen "img" attrs) = S.TagOpen "img" <$> f attrs
         mapTag otherTag                = return otherTag
 
 -- Sets the width and height attributes of all <img> tags.

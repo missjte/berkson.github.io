@@ -71,7 +71,7 @@ year post = y where (y, _m, _d) = toGregorian $ date post
 
 -- Returns the canonical absolute url for a particular post.
 url :: Post -> String
-url post = "/" ++ datePath ++ "/" ++ (slug post)
+url post = "/" ++ datePath ++ "/" ++ slug post
   where datePath = formatTime defaultTimeLocale "%Y/%m/%d" $ date post
 
 -- Returns whether post has code in it that requires a monospace font.
@@ -111,18 +111,18 @@ context p = fmap Template.StringValue ctx
                                , ("synopsis-html", Type.makeAbbrs $ synopsis p)
                                , ("content", body p) ]
         optFields = M.fromList [ ("subheader", subheader p)
-                               , ("part", fmap toRoman $ part p)
+                               , ("part", toRoman <$> part p)
                                , ("bold-font", boldFontField)
                                , ("italic-font", italicFontField)
                                , ("math", mathField)
                                , ("mono-font", monoFontField)
                                , ("serif-italic-font", serifItalicFontField) ]
-        usesSerifItalic      = (Type.usesSerifItalicFont $ body p) || (isJust $ subheader p)
+        usesSerifItalic      = Type.usesSerifItalicFont (body p) || isJust (subheader p)
         boldFontField        = booleanField $ Type.usesBoldFont $ body p
         italicFontField      = booleanField $ usesItalicFont p
         mathField            = booleanField $ Html.hasMath $ body p
         monoFontField        = booleanField $ usesMonoFont p
-        serifItalicFontField = booleanField $ usesSerifItalic
+        serifItalicFontField = booleanField   usesSerifItalic
 
 -- Given a slug and the contents of the post file (markdown with front matter),
 -- renders the body to html and parses the metadata.
@@ -140,7 +140,7 @@ parse postSlug contents = let
   in Post { title     = postTitle
           , header    = brokenHeading
           , subheader = M.lookup "subheader" frontMatter
-          , part      = fmap read $ M.lookup "part" frontMatter
+          , part      = read <$> M.lookup "part" frontMatter
           , date      = parseDate $ frontMatter M.! "date"
           , slug      = postSlug
           , synopsis  = frontMatter M.! "synopsis"
@@ -155,7 +155,7 @@ renderMarkdown md = case fmap (writeHtmlString wopt) (readMarkdown ropt md) of
   -- For output, enable syntax highlighting.
   where ropt = def { readerExtensions = S.insert Ext_backtick_code_blocks $
                                         S.insert Ext_raw_html $
-                                        S.insert Ext_simple_tables $
+                                        S.insert Ext_simple_tables
                                         def }
         wopt = def { writerHighlight  = True }
 
@@ -176,8 +176,8 @@ selectRelated :: [Post] -> [(Post, RelatedContent)]
 selectRelated posts = fmap nextElsePrev prevPostNext
   where -- Create chronological triples of (previous post, post, next post).
         chronological = sortWith date posts
-        prevPosts     = Nothing : (fmap Just chronological)
-        nextPosts     = (drop 1 $ fmap Just chronological) ++ [Nothing]
+        prevPosts     = Nothing : fmap Just chronological
+        nextPosts     = drop 1 $ fmap Just chronological ++ [Nothing]
         prevPostNext  = zip3 prevPosts chronological nextPosts
 
         -- Select the next post as "Further" content if there is one, otherwise
@@ -190,7 +190,7 @@ selectRelated posts = fmap nextElsePrev prevPostNext
 -- Returns a context for a group of posts that share the same year.
 archiveYearContext :: [Post] -> Template.Context
 archiveYearContext posts = yearField `M.union` postsField
-  where yearField     = Template.stringField "year" $ show $ year $ head $ posts
+  where yearField     = Template.stringField "year" $ show $ year $ head posts
         chronological = sortWith date posts
         recentFirst   = reverse chronological
         postsField    = Template.listField "post" $ fmap context recentFirst

@@ -82,7 +82,7 @@ listField key values = M.singleton key (ListValue values)
 -- Fakes nested context fields by prepending "<key>." to the keys of the child
 -- context.
 nestContext :: String -> Context -> Context
-nestContext key child = M.mapKeys ((key ++ ".") ++) child
+nestContext key = M.mapKeys ((key ++ ".") ++)
 
 -- Applies the template (fragments) with given context until an end fragment is
 -- encountered, at which point the current string and the remaining fragments
@@ -100,7 +100,7 @@ applyBlock fragments context = next fragments ""
         getList name = case M.lookup name context of
           Just (ListValue list) -> list
           _                     -> []
-        isTrue condition = if (head condition) == '!' then negated else present
+        isTrue condition = if head condition == '!' then negated else present
           where present  = M.member condition context
                 negated  = not $ M.member (tail condition) context
         next :: [Fragment] -> String -> (String, [Fragment])
@@ -109,11 +109,11 @@ applyBlock fragments context = next fragments ""
           End               -> (str, more)
           Raw contents      -> next more (str ++ contents)
           Variable variable -> next more (str ++ expand variable)
-          Conditional cond  -> next continue $ if (isTrue cond) then str ++ inner else str
+          Conditional cond  -> next continue $ if isTrue cond then str ++ inner else str
             where (inner, continue) = applyBlock more context
           Include template  -> next more (str ++ include template)
           Loop list         -> next continue $ str ++ inner
-            where inner         = join $ fmap (\ctx -> fst $ applyBlock more ctx) $ getList list
+            where inner         = join ((fst . applyBlock more) <$> getList list)
                   (_, continue) = applyBlock more context
 
 -- Applies the template with the given context.

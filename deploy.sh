@@ -2,7 +2,7 @@
 
 REMOTE="git@github.com:berkson/berkson.github.io.git"
 SITE="out/."
-DEPLOY="out"
+DEPLOY="deploy"
 
 info() {
   printf "  \033[00;32m+\033[0m $1\n"
@@ -21,7 +21,7 @@ fail() {
 vps_install() {
   if [ ! -f "vps.sh" ]; then
     cd ..
-    ./source/vps.sh
+    ./vps.sh
   fi
 }
 
@@ -66,9 +66,9 @@ deploy() {
 
   if [[ "$OSTYPE"x == "msys"x ]]; then
     # no unicode support in msys, so invoke powershell and establish code page
-    powershell "chcp 65001; ./blog build" 2> /dev/null
+    powershell "chcp 65001; stack exec blog" 2> /dev/null
   else
-    ./blog build 2> /dev/null
+    stack exec blog
   fi
 
   cp -r $SITE $DEPLOY

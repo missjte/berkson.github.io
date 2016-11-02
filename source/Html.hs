@@ -206,16 +206,16 @@ data TagProperties = TagProperties { isA          :: Bool
                                    , isVar        :: Bool }
 
 isHeading :: TagProperties -> Bool
-isHeading t = (isH1 t) || (isH2 t) || (isH3 t)
+isHeading t = isH1 t || isH2 t || isH3 t
 
 isSubtitle :: TagProperties -> Bool
-isSubtitle t = (isHeader t) && (isH2 t)
+isSubtitle t = isHeader t && isH2 t
 
 isArchiveLink :: TagProperties -> Bool
-isArchiveLink t = (isArchive t) && (isSmcp t) && (isA t)
+isArchiveLink t = isArchive t && isSmcp t && isA t
 
 isTeaserLink :: TagProperties -> Bool
-isTeaserLink t = (isTeaser t) && (isA t)
+isTeaserLink t = isTeaser t && isA t
 
 getProperties :: [TagClass] -> TagProperties
 getProperties ts =
@@ -249,7 +249,7 @@ getProperties ts =
 
 -- Given a list of tags, classifies them as "inside code", "inside em", etc.
 classifyTags :: [Tag] -> [(Tag, TagProperties)]
-classifyTags tags = zip tags $ fmap getProperties $ tagStacks tags
+classifyTags tags = zip tags (getProperties <$> tagStacks tags)
 
 -- Discards tags for which the predicate returns false.
 filterTags :: (TagProperties -> Bool) -> [Tag] -> [Tag]
@@ -259,7 +259,7 @@ filterTags predicate = fmap fst . filter (predicate . snd) . classifyTags
 -- that tag. The function tmap is a way to abstract over the mapping function,
 -- it should not alter the length of the list.
 applyTagsWhere :: (TagProperties -> Bool) -> ([Tag] -> [Tag]) -> [Tag] -> [Tag]
-applyTagsWhere p tmap tags = fmap select $ zip (classifyTags tags) (tmap tags)
+applyTagsWhere p tmap tags = select <$> zip (classifyTags tags) (tmap tags)
   where select ((orig, props), mapped) = if p props then mapped else orig
 
 -- Applies the function f to all tags for which p returns true.
@@ -269,25 +269,23 @@ mapTagsWhere p f = applyTagsWhere p (fmap f)
 -- Applies the function f to all tags for which p returns true and flattens the result.
 concatMapTagsWhere :: (TagProperties -> Bool) -> (Tag -> [Tag]) -> [Tag] -> [Tag]
 concatMapTagsWhere p f = concatMap select . classifyTags
-  where select (tag, props) = if (p props) then f tag else [tag]
+  where select (tag, props) = if p props then f tag else [tag]
 
 -- Returns the the text in all tags that satisfy the selector.
 getTextInTag :: (TagProperties -> Bool) -> String -> String
-getTextInTag p  = join . intersperse " " . getText . (filterTags p) . parseTags
+getTextInTag p  = join . intersperse " " . getText . filterTags p . parseTags
   where getText = fmap S.fromTagText . filter S.isTagText
 
 -- Returns a list of text in text nodes, together with a value selected by f.
 mapTextWith :: (TagProperties -> a) -> String -> [(String, a)]
-mapTextWith f = fmap select . (filter $ S.isTagText . fst) . classifyTags . parseTags
+mapTextWith f = fmap select . filter (S.isTagText . fst) . classifyTags . parseTags
   where select (tag, props) = (S.fromTagText tag, f props)
 
 -- Returns whether an <ul> tag is present in the <article> in an html string.
 hasUl :: String -> Bool
-hasUl = not . null
-      . filter (isArticle . snd)
-      . filter (S.isTagOpenName "ul" . fst)
-      . classifyTags
-      . parseTags
+hasUl = not .
+    any (isArticle . snd) .
+      filter (S.isTagOpenName "ul" . fst) . classifyTags . parseTags
 
 -- Returns whether an html snippet contains a <sub>, <sup>, or <var> tag.
 hasMath :: String -> Bool
@@ -299,14 +297,14 @@ hasMath = any (\t -> isSub t || isSup t || isVar t)
 -- Returns the length of the longest ordered list in an html string.
 maxOlLength :: String -> Int
 maxOlLength = maximum . foldl listLength [0] . classifyTags . parseTags
-  where listLength ns     ((S.TagOpen  "ol" _), _  )            = 0 : ns
-        listLength (n:ns) ((S.TagOpen  "li" _), cls) | isOl cls = (n + 1) : ns
+  where listLength ns     (S.TagOpen  "ol" _, _  )            = 0 : ns
+        listLength (n:ns) (S.TagOpen  "li" _, cls) | isOl cls = (n + 1) : ns
         listLength ns     _                                     = ns
 
 -- Adds <span class="run-in"> around the first n characters of an html snippet.
 -- Assumes that the html starts with a <p> tag.
 makeRunIn :: String -> Int -> String
-makeRunIn html n  = prefix ++ (drop 3 runIn) ++ "</span>" ++ after
+makeRunIn html n  = prefix ++ drop 3 runIn ++ "</span>" ++ after
   where (runIn, after) = splitAt (n + 3) html
         prefix         = "<p><span class=\"run-in\">"
 

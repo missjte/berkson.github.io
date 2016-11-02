@@ -13,6 +13,7 @@ module Type ( SubsetCommand
             , usesSerifItalicFont
             ) where
 
+import           Control.Monad
 import           Data.Char (isAscii, isAsciiLower, isAsciiUpper, isLetter,
                             isSpace, ord, toLower)
 import           Data.Maybe (fromJust, isJust)
@@ -42,7 +43,7 @@ needsFont t = case t of
   _ | Html.isHead t   -> False
   _ | Html.isScript t -> False
   _ | Html.isStyle t  -> False
-  _ | otherwise       -> True
+  _                   -> True
 
 getFamily :: TagProperties -> FontFamily
 getFamily t = case t of
@@ -53,7 +54,7 @@ getFamily t = case t of
   _ | Html.isHeader t      -> Serif
   _ | Html.isHeading t     -> Serif
   _ | Html.isTeaserLink t  -> Serif
-  _ | otherwise            -> Sans
+  _                        -> Sans
 
 getWeight :: TagProperties -> FontWeight
 getWeight t = case t of
@@ -61,7 +62,7 @@ getWeight t = case t of
   _ | Html.isHeading t  -> Bold
   _ | Html.isStrong t   -> Bold
   _ | Html.isTh t       -> Bold
-  _ | otherwise         -> Regular
+  _                     -> Regular
 
 getStyle :: TagProperties -> FontStyle
 getStyle t = case t of
@@ -69,14 +70,14 @@ getStyle t = case t of
   _ | Html.isEm t         -> Italic
   _ | Html.isSubtitle t   -> Italic
   _ | Html.isVar t        -> Italic
-  _ | otherwise           -> Roman
+  _                       -> Roman
 
 getCaps :: TagProperties -> FontCaps
 getCaps t = case t of
   _ | Html.isAbbr t       -> AllSmallCaps
   _ | Html.isSmcp t       -> AllSmallCaps
   _ | Html.isRunIn t      -> SmallCaps
-  _ | otherwise           -> UnchangedCaps
+  _                       -> UnchangedCaps
 
 getFont :: TagProperties -> Maybe FontAndCaps
 getFont t = if needsFont t then Just font else Nothing
@@ -102,7 +103,7 @@ splitAbbrs :: String -> [AbbrWord]
 splitAbbrs = filter (not . abbrNull) . foldr prepend [MixedCaps ""] . splitWords
   where prepend _    []              = error "unreachable"
         prepend word (AllCaps   str : more) = MixedCaps word : AllCaps str : more
-        prepend word (MixedCaps str : more) = if (all isAsciiUpper word) && (length word >= 2)
+        prepend word (MixedCaps str : more) = if all isAsciiUpper word && (length word >= 2)
                                             then AllCaps word : MixedCaps str : more
                                             else MixedCaps (word ++ str) : more
 
@@ -115,17 +116,17 @@ makeAbbrs = Html.renderTags . Html.concatMapTagsWhere isBodyTag mkAbbr . Html.pa
         insertAbbrs (AllCaps   str) = [S.TagOpen "abbr" [], S.TagText str, S.TagClose "abbr"]
         -- Only insert <abbr> tags in things that are typesetted (text content),
         -- but not in monospace content (code).
-        isBodyTag t = (needsFont t) && (not $ Html.isCode t)
+        isBodyTag t = needsFont t && not (Html.isCode t)
 
 -- Returns whether Calluna or Inconsolata has a glyph for the character. This
 -- function is optimistic, so getGlyphName still fails for unexpected glyphs.
 isGlyphSupported :: Char -> Bool
-isGlyphSupported c = not $ c `elem` ['\n', 'φ', 'ψ', '≡']
+isGlyphSupported c = c `notElem` ['\n', '\966', '\968', '\8801']
 
 -- Convert a unicode character to its postscript glyph name.
 getGlyphName :: Char -> String
 getGlyphName c = case c of
-  a | (isAscii a) && (isLetter a) -> [a] -- Ascii letters are their own name.
+  a | isAscii a && isLetter a -> [a] -- Ascii letters are their own name.
   '\x00a0' -> "uni00A0"                  -- U+00A0 is a non-breaking space.
   '\x2009' -> "thinspace"                -- TODO: Should I remove it, and put
   '\x2013' -> "endash"                   -- an &nbsp; in the source, just to
@@ -187,7 +188,7 @@ getGlyphName c = case c of
   '≈' -> "approxequal"
   '𝔽' -> "u1D53D"
   _   -> error $ "no postscript glyph name for '" ++ [c] ++ "' " ++
-                 "(code point " ++ (show $ ord c) ++ ")"
+                 "(code point " ++ show (ord c) ++ ")"
 
 -- Given a piece of text, returns the glyph names of the ligatures required to
 -- typeset the text.
@@ -243,12 +244,10 @@ getDiscretionaryLigatures = buildList []
 -- Parses html and returns a list with pieces of text and the font they should
 -- be set in.
 mapFont :: String -> [(String, FontAndCaps)]
-mapFont = (fmap dropMaybe)
-        . (filter $ isJust . snd)
-        . (fmap selectFont)
-        . (filter $ S.isTagText . fst)
-        . Html.classifyTags
-        . Html.parseTags
+mapFont = fmap dropMaybe .
+  filter (isJust . snd) .
+        fmap selectFont .
+        filter (S.isTagText . fst) . Html.classifyTags . Html.parseTags
   where dropMaybe  (str, justFont) = (str, fromJust justFont)
         selectFont (tag, props)    = (S.fromTagText tag, getFont props)
 
@@ -263,11 +262,9 @@ synthesizeListBullets html = if Html.hasUl html then "•" else ""
 -- Given html, returns a string with guillemets that are added by css.
 synthesizeGuillemets :: String -> String
 synthesizeGuillemets html = if hasMoreLink then "\x00a0»" else ""
-  where hasMoreLink  = not $ null
-                     $ filter (\t -> Html.isTeaserLink t || Html.isArchiveLink t)
-                     $ fmap snd
-                     $ Html.classifyTags
-                     $ Html.parseTags html
+  where hasMoreLink  = not
+                     (any (\ t -> Html.isTeaserLink t || Html.isArchiveLink t)
+                     (fmap snd $ Html.classifyTags $ Html.parseTags html))
 
 -- Returns the text that is not present in the html but generated by css.
 synthesizeFont :: String -> [(String, FontAndCaps)]
@@ -278,7 +275,7 @@ synthesizeFont html =
 
 -- Returns all the text that should be typeset and the font it should be set in.
 mapFontFull :: String -> [(String, FontAndCaps)]
-mapFontFull html = (mapFont html) ++ (synthesizeFont html)
+mapFontFull html = mapFont html ++ synthesizeFont html
 
 data IncludeLigatures = NoLigatures
                       | WithLigatures
@@ -288,7 +285,7 @@ data IncludeLigatures = NoLigatures
 -- mapFont, returns a list of postscript glyph names required to typeset the
 -- content.
 getGlyphs :: Font -> IncludeLigatures -> [(String, FontAndCaps)] -> [String]
-getGlyphs font ligatures = unique . (concatMap mapGlyphs) . (filter matchesFont)
+getGlyphs font ligatures = unique . concatMap mapGlyphs . filter matchesFont
         -- Note: there are more small cap glyphs than just the letters, but for
         -- now I don't use them.
         -- For a small cap, include both the small cap and the regular letter.
@@ -297,7 +294,7 @@ getGlyphs font ligatures = unique . (concatMap mapGlyphs) . (filter matchesFont)
         -- used, because small caps follow a substitution rule, and if the true
         -- glyph is not there, there is nothing to substitute.
   where makeSmcp predicate glyph = case glyph of
-          g:[] | predicate g -> [(toLower g) : ".smcp", glyph]
+          [g] | predicate g -> [toLower g : ".smcp", glyph]
           _                  -> [glyph]
         glyphsFor      = fmap getGlyphName . filter isGlyphSupported . unique
         ligasFor str   = case ligatures of
@@ -306,9 +303,9 @@ getGlyphs font ligatures = unique . (concatMap mapGlyphs) . (filter matchesFont)
         dligsFor str   = case ligatures of
           WithDiscretionaryLigatures -> getDiscretionaryLigatures str
           _                          -> []
-        matchesFont  (_,   (f, w, s, _   )) = (font == (f, w, s))
+        matchesFont  (_,   (f, w, s, _   )) = font == (f, w, s)
         mapGlyphs    (str, (_, _, _, caps)) = case caps of
-          UnchangedCaps -> (glyphsFor str) ++ (ligasFor str) ++ (dligsFor str)
+          UnchangedCaps -> glyphsFor str ++ ligasFor str ++ dligsFor str
           SmallCaps     -> concatMap (makeSmcp isAsciiLower) $ glyphsFor str
           AllSmallCaps  -> concatMap (makeSmcp isAscii     ) $ glyphsFor str
 
@@ -319,13 +316,13 @@ data SubsetCommand = SubsetCommand FilePath FilePath [String] deriving (Show)
 subsetFonts :: [SubsetCommand] -> IO ()
 subsetFonts commands = do
   -- Divide the workload over eight processes to speed up subsetting.
-  procs <- sequence $ replicate 8 $ P.createProcess subsetScriptPiped
+  procs <- replicateM 8 (P.createProcess subsetScriptPiped)
   let stdins = fmap (\(Just stdin, _, _, _) -> stdin) procs
       pids   = fmap (\(_, _, _, pid) -> pid) procs
   mapM_ (uncurry pushCommand) (zip (cycle stdins) commands)
   mapM_ hClose stdins
   mapM_ P.waitForProcess pids -- Wait, but ignore the exit codes.
-  where subsetScript = P.proc "python3" ["fonts/subset.py"]
+  where subsetScript = P.proc "python3" ["journal/fonts/subset.py"]
         -- The Python interpreter needs to have a pipe for stdin because we
         -- want to write to it.
         subsetScriptPiped = subsetScript { P.std_in = P.CreatePipe }
@@ -355,8 +352,8 @@ subsetArtifact baseName html = filter isUseful commands
         sansBoldGlyphs    = getGlyphs (Sans,  Bold,    Roman)  WithLigatures fontPieces
         monoGlyphs        = getGlyphs (Mono,  Regular, Roman)  NoLigatures   fontPieces
 
-        fontDir = "fonts/generated/"
-        subset file suffix glyphs = SubsetCommand (fontDir ++ file) (baseName ++ suffix) glyphs
+        fontDir = "journal/fonts/generated/"
+        subset file suffix = SubsetCommand (fontDir ++ file) (baseName ++ suffix)
 
         serifItalicCommand = subset "calluna-italic.otf"      "si" serifItalicGlyphs
         serifRomanCommand  = subset "calluna.otf"             "sr" serifRomanGlyphs
@@ -373,14 +370,14 @@ subsetArtifact baseName html = filter isUseful commands
 -- Returns whether the html contains text that must be set in the bold
 -- sans-serif font.
 usesBoldFont :: String -> Bool
-usesBoldFont = not . null . filter isBoldSans . mapFontFull
+usesBoldFont = not . any isBoldSans . mapFontFull
   where isBoldSans (_, (Sans, Bold, _, _)) = True
         isBoldSans _                       = False
 
 -- Returns whether the html contains text that must be set in the serif italic
 -- font.
 usesSerifItalicFont :: String -> Bool
-usesSerifItalicFont = not . null . filter isSerifItalic . mapFontFull
+usesSerifItalicFont = not . any isSerifItalic . mapFontFull
   where isSerifItalic (_, (Serif, _, Italic, _)) = True
         isSerifItalic _                          = False
 
