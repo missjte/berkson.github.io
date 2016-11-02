@@ -179,7 +179,9 @@ main = do
   contactArtifact <- writeContact globalContext (templates M.! "contact.html") config
   archiveArtifact <- writeArchive globalContext (templates M.! "archive.html") posts config
 
-  copyFile "journal/assets/favicon.png"          "out/favicon.png"
+  copyFile "journal/assets/favicon.ico"                "out/favicon.ico"
+  copyFile "journal/assets/favicon-16x16.png"          "out/favicon-16x16.png"
+  copyFile "journal/assets/favicon-32x32.png"          "out/favicon-32x32.png"
 
   putStrLn "Writing atom feed..."
   writeFeed (templates M.! "feed.xml") posts config
