@@ -12,8 +12,8 @@ cabal.sandbox.config
 *.swp
 
 # Fonts, original and processed
-/fonts/generated
-/fonts/original
+/journal/fonts/generated
+/journal/fonts/original
 
 # Generated blog output
 out/
