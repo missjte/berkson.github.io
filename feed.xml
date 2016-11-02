@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Prick Your Finger</title>
   <id>http://prickyourfinger.org/</id>
-  <icon>/favicon.png</icon>
+  <icon>/favicon-32x32.png</icon>
   <link href="http://prickyourfinger.org/blog" rel="alternate"/>
   <link href="http://prickyourfinger.org/feed.xml" rel="self"/>
   <author>
