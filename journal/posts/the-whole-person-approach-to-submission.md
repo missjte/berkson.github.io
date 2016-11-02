@@ -1,7 +1,7 @@
 ---
 title: The whole person approach to Submission
 date: 2016-04-24
-synopsis: When I talk about the things in my life that aren't outwardly about my views of dominance & submission, rest assuredly that they absolutely are.
+synopsis: When I talk about the things in my life that aren't outwardly about my views of dominance &amp; submission, rest assuredly that they absolutely are.
 run-in: More often than not
 ---
 
