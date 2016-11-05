@@ -2,8 +2,8 @@ name:          blog
 version:       3.0.0
 synopsis:      Static site generator for my personal blog
 homepage:      http://prickyourfinger.org
-author:        Prick Your Finger <dev@veniogames.com>
-copyright:     Prick Your Finger 2015
+author:        Prick Your Finger <berkson@prickyourfinger.org>
+copyright:     Prick Your Finger 2016
 license:       GPL-3
 license-file:  licence
 build-type:    Simple
