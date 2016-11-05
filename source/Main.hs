@@ -51,7 +51,7 @@ readPost fname = makePost <$> readFile fname
 
 -- Reads and renders all posts in the given directory.
 readPosts :: FilePath -> IO [P.Post]
-readPosts = mapFilesIf ((== ".md") . takeExtension) readPost
+readPosts = mapFilesIf ((== ".markdown") . takeExtension) readPost
 
 -- An artifact is a numbered page plus its html contents.
 type Artifact = (Int, String)
@@ -120,7 +120,7 @@ writeIndex globalContext = writePage 0 "/" context
 writeArchive :: Template.Context -> Template.Template -> [P.Post] -> Config -> IO Artifact
 writeArchive globalContext template posts = writePage 1 "/blog" context template
   where context = M.unions [ P.archiveContext posts
-                           , Template.stringField "title"     "Blog by Eiren &amp; Berkson"
+                           , Template.stringField "title"     "Archive - Prick Your Finger"
                            , Template.stringField "bold-font" "true"
                            , globalContext ]
 
@@ -128,7 +128,7 @@ writeArchive globalContext template posts = writePage 1 "/blog" context template
 -- to the destination directory.
 writeContact :: Template.Context -> Template.Template -> Config -> IO Artifact
 writeContact globalContext = writePage 2 "/contact" context
-  where context = M.unions [ Template.stringField "title"     "Contact Prick Your Finger"
+  where context = M.unions [ Template.stringField "title"     "Contact Eiren &amp; Berkson"
                            , Template.stringField "light"     "true"
                            , globalContext ]
 
@@ -156,7 +156,8 @@ subsetFontsForArtifacts artifacts fontDir = do
 
 main :: IO ()
 main = do
-  templates <- readTemplates "journal/templates/"
+  templates <- readTemplates "journal/template/"
+  pages     <- readTemplates "journal/pages/"
   posts     <- readPosts     "journal/posts/"
 
   -- Create a context with the field "year" set to the current year, and create
@@ -175,9 +176,9 @@ main = do
   postArtifacts <- writePosts (templates M.! "post.html") globalContext posts config
 
   putStrLn "Writing other pages..."
-  indexArtifact   <- writeIndex   globalContext (templates M.! "index.html")   config
-  contactArtifact <- writeContact globalContext (templates M.! "contact.html") config
-  archiveArtifact <- writeArchive globalContext (templates M.! "archive.html") posts config
+  indexArtifact   <- writeIndex   globalContext (pages M.! "index.html")   config
+  contactArtifact <- writeContact globalContext (pages M.! "contact.html") config
+  archiveArtifact <- writeArchive globalContext (pages M.! "archive.html") posts config
 
   copyFile "journal/assets/favicon.ico"                "out/favicon.ico"
   copyFile "journal/assets/favicon-16x16.png"          "out/favicon-16x16.png"

@@ -1,5 +1,5 @@
 ---
-title: How I met berkson
+title: How I met Berkson
 date: 2015-08-14
 synopsis: A podcast by Eiren, transcribed by Berkson for clarity and accuracy.
 ---
