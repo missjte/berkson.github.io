@@ -128,7 +128,7 @@ writeArchive globalContext template posts = writePage 1 "/blog" context template
 -- to the destination directory.
 writeContact :: Template.Context -> Template.Template -> Config -> IO Artifact
 writeContact globalContext = writePage 2 "/contact" context
-  where context = M.unions [ Template.stringField "title"     "Contact Eiren &amp; Berkson"
+  where context = M.unions [ Template.stringField "title"     "Contact - Prick Your Finger"
                            , Template.stringField "light"     "true"
                            , globalContext ]
 
