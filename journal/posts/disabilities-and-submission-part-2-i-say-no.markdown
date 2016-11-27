@@ -47,9 +47,9 @@ And the irony is just astounding.  I'm so damn accustomed to saying "No, Eiren" 
 
 And I know I shouldn't, and I try to not do it, but I catch myself after the fact so fucking often that it's heartbreaking.  I beat myself up over it more than her disappointment could ever hurt me, and that's a fucking problem in and of itself, but then there's an even greater problem right in the middle of all of this: I hate saying "No, Eiren", but if *I don't say it*, nobody will.
 
-**I say no because Eiren won't.**  I say "No" becaus my ability to say "No" has saved her life.
+**I say no because Eiren won't.**  I say "No" because my ability to say "No" has saved her life.
 
-The reoccurring theme here isn't that I'm a bad submissive, it isn't that I struggle and have struggled, it's that the there are things that we don't want to do, the things that may be opposite of who we want to be or who we really are, are sometimes the most important, most needed things in a relationship.
+The reoccurring theme here isn't that I'm a bad submissive, it isn't that I struggle and have struggled, it's that there are things that we don't want to do, the things that may be opposite of who we want to be or who we really are, are sometimes the most important, most needed things in a relationship.
 
 **Eiren is my dominant and I am her submissive, but what Eiren has asked me to do is take control.  What Eiren truly, really needs right now is someone to shove their foot up her ass and tell her what to do.**
 
@@ -63,4 +63,4 @@ And, when I can achieve that, when I can say both of them perfectly?  There is *
 
 And I love her enough to thank her for this opportunity, this challenge that not many other people would be *truly* willing to do for someone else.
 
-Because I doing it all for her.
+Because I do it all for her.
