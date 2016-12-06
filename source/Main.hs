@@ -126,6 +126,22 @@ writeArchive globalContext template posts = writePage 1 "/blog" context template
 
 -- Given the contact template and the global context, writes the contact page
 -- to the destination directory.
+writeMantra :: Template.Context -> Template.Template -> Config -> IO Artifact
+writeMantra globalContext = writePage 2 "/mantra" context
+  where context = M.unions [ Template.stringField "title"     "Mantra - Prick Your Finger"
+                           , Template.stringField "light"     "true"
+                           , globalContext ]
+
+-- Given the contact template and the global context, writes the contact page
+-- to the destination directory.
+writeLifestyle :: Template.Context -> Template.Template -> Config -> IO Artifact
+writeLifestyle globalContext = writePage 2 "/lifestyle" context
+  where context = M.unions [ Template.stringField "title"     "Lifestyle - Prick Your Finger"
+                           , Template.stringField "light"     "true"
+                           , globalContext ]
+
+-- Given the contact template and the global context, writes the contact page
+-- to the destination directory.
 writeContact :: Template.Context -> Template.Template -> Config -> IO Artifact
 writeContact globalContext = writePage 2 "/contact" context
   where context = M.unions [ Template.stringField "title"     "Contact - Prick Your Finger"
@@ -176,9 +192,11 @@ main = do
   postArtifacts <- writePosts (templates M.! "post.html") globalContext posts config
 
   putStrLn "Writing other pages..."
-  indexArtifact   <- writeIndex   globalContext (pages M.! "index.html")   config
-  contactArtifact <- writeContact globalContext (pages M.! "contact.html") config
-  archiveArtifact <- writeArchive globalContext (pages M.! "archive.html") posts config
+  indexArtifact     <- writeIndex      globalContext (pages M.! "index.html")      config
+  mantraArtifact    <- writeMantra     globalContext (pages M.! "mantra.html")     config
+  lifestyleArtifact <- writeLifestyle  globalContext (pages M.! "lifestyle.html")  config
+  contactArtifact   <- writeContact    globalContext (pages M.! "contact.html")    config
+  archiveArtifact   <- writeArchive    globalContext (pages M.! "archive.html")    posts config
 
   copyFile "journal/assets/favicon.ico"                "out/favicon.ico"
   copyFile "journal/assets/favicon-16x16.png"          "out/favicon-16x16.png"
@@ -188,5 +206,5 @@ main = do
   writeFeed (templates M.! "feed.xml") posts config
 
   putStrLn "Subsetting fonts..."
-  let artifacts = indexArtifact : contactArtifact : archiveArtifact : postArtifacts
+  let artifacts = indexArtifact : mantraArtifact : lifestyleArtifact : contactArtifact : archiveArtifact : postArtifacts
   subsetFontsForArtifacts artifacts "out/fonts/"

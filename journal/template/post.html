@@ -13,23 +13,23 @@
       </header>
       {{content}}
 
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          this.page.url = 'http://prickyourfinger.org' + '{{url}}';
+      <div id="disqus_thread">
+        <script>
+          var disqus_config = function () {
+            this.page.url = 'http://prickyourfinger.org' + '{{url}}';
 
-          this.page.identifier = '{{url}}';
-          this.page.title = '{{title}}';
-        };
-        (function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//prickyourfinger.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
+            this.page.identifier = '{{url}}';
+            this.page.title = '{{title}}';
+          };
+          (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//prickyourfinger.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+          })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+      </div>
     </article>
     <section id="teaser-section">
       <div id="teaser">
