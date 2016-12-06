@@ -9,7 +9,6 @@ cabal.sandbox.config
 
 # Editor files
 .gitignore
-.travis.yml
 .DS_Store
 *.swp
 
