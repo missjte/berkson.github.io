@@ -18,12 +18,12 @@ The only place where the smartest and hottest sex bloggers are featured under on
 [I am Her. She is Me.](https://nerdydirtygirl.wordpress.com/2016/05/18/i-am-her-she-is-me/)<br>
 [You Say You Want to Cook for Me](http://jadeawaters.com/2016/05/24/you-say-you-want-to-cook-for-me/)<br>
 
-### ~ Featured Post (Molly’s Picks) ~
+## ~ Featured Post (Molly’s Picks) ~
 
 [Unusual Liaison](http://rachelkincaid4.blogspot.co.uk/2016/05/unusual-liaison.html?zx=b55564c9082d6166)<br>
 [Community. Respect. Friendship. Fucking.](http://sexylittleideas.com/community-respect-friendship-fucking/)<br>
 
-### **~ Readers Choice from [Sexbytes](http://sexbytes.elustsexblogs.com/ "Sex Bytes, Submit and vote on your favorite sex post") ~**
+## ~ Readers Choice from [Sexbytes](http://sexbytes.elustsexblogs.com/ "Sex Bytes, Submit and vote on your favorite sex post") ~
 *You really should consider adding your popular posts here too*<br>
 
 [Dirty Little Secrets](http://sexbytes.elustsexblogs.com/dirty-little-secrets/)<br>

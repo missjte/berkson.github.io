@@ -18,12 +18,12 @@ The only place where the smartest and hottest sex bloggers are featured under on
 [How Do I Love Thee:On Comparing Relationships](http://malinjames.com/2016/04/19/how-do-i-love-thee-comparing-relationships/)<br>
 [Asking all the questions...](https://theotherlivvy.com/2016/04/16/asking-all-the-questions/)
 
-### ~ Featured Post (Molly’s Picks) ~
+## ~ Featured Post (Molly’s Picks) ~
 
 [Erotic Fiction: Fishnet Queen](http://jadeawaters.com/2016/04/13/erotic-fiction-fishnet-queen/)<br>
 [I Manage My Expectations](https://nerdydirtygirl.wordpress.com/2016/05/03/i-manage-my-expectations/)<br>
 
-### **~ Readers Choice from [Sexbytes](http://sexbytes.elustsexblogs.com/ "Sex Bytes, Submit and vote on your favorite sex post") ~**
+## ~ Readers Choice from [Sexbytes](http://sexbytes.elustsexblogs.com/ "Sex Bytes, Submit and vote on your favorite sex post") ~
 *You really should consider adding your popular posts here too*<br>
 
 [Wanna Have Sex With Me? – Here’s how](http://sexbytes.elustsexblogs.com/wanna-sex-heres/)<br>

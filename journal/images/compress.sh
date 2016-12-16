@@ -12,7 +12,13 @@
 # Mozjpeg insists on conflicting with libjpeg-turbo, but many packages depend on
 # libjpeg-turbo and I don't want to replace it system-wide. Fortunately there
 # is an aur package that installs mozjpeg to /opt.
-mozjpeg='/opt/mozjpeg/bin/cjpeg -quality'
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  mozjpeg='/usr/local/cellar/mozjpeg/3.1_1/bin/cjpeg -quality'
+else
+  mozjpeg='/opt/mozjpeg/bin/cjpeg -quality'
+fi
+
 
 mkdir -p compressed
 
@@ -21,3 +27,4 @@ $mozjpeg 88.0 resized/elustblacknew.jpg > compressed/elustblacknew.jpg
 $mozjpeg 88.0 resized/Holden-and-Camille-Header.jpg > compressed/Holden-and-Camille-Header.jpg
 $mozjpeg 88.0 resized/HEADER-teachers.jpg > compressed/HEADER-teachers.jpg
 $mozjpeg 88.0 resized/2015-11-15-sinful-sunday.jpg > compressed/2015-11-15-sinful-sunday.jpg
+$mozjpeg 88.0 resized/Sex-is-my-new-hobby-HEADER.jpg > compressed/Sex-is-my-new-hobby-HEADER.jpg
