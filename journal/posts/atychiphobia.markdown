@@ -9,12 +9,12 @@ It's funny to me that, at twenty-four, for the first time in my life I can say t
 
 And to be honest, I guess that I've never felt that anyone other than Eiren would be there for me *consistently*.
 
-**Not my co-workers.  Not my family.  Not my parents.**  
+**Not my co-workers.  Not my family.  Not my parents.**
 
 > **atychiphobia** <br>
 > &nbsp;&nbsp;*(n.)* fear of failure; fear of not being good enough
 
-In my [second blog post](/posts/2015/06/11/people-i-know-scare-me/) and to the people I spoken to regularly on twitter, I've made it pretty clear that *friends* aren't really *my thing*. Not for a lack of trying or desire, but because I feel that after getting to know people, any further communication from me - physical, verbal, non-verbal, even **eye-contact** - is me imposing myself upon them.
+In my [second blog post](/2015/06/11/people-i-know-scare-me/) and to the people I spoken to regularly on twitter, I've made it pretty clear that *friends* aren't really *my thing*. Not for a lack of trying or desire, but because I feel that after getting to know people, any further communication from me - physical, verbal, non-verbal, even **eye-contact** - is me imposing myself upon them.
 
 I become timid.
 

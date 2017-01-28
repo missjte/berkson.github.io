@@ -71,7 +71,7 @@ _All blogs that have a submission in this edition must re-post this digest from 
 #### Thoughts & Advice on Kink & Fetish
 
 [Blast from the Fetish Video Past](http://declanheyse.blogspot.com/2016/04/blast-from-fetish-video-past.html)<br>
-[The whole person approach to Submission](/posts/2016/04/24/the-whole-person-approach-to-submission/)<br>
+[The whole person approach to Submission](/2016/04/24/the-whole-person-approach-to-submission/)<br>
 [Down on my knees](http://happycomelucky.com/2016/04/13/down-on-my-knees-2/)<br>
 [Dominant Doppelgangers, Dominant Opposites](https://dilokeith.wordpress.com/2016/05/04/my-dominant-doppelganger-and-my-dominant-polar-opposite/)<br>
 [Four eyes](http://atosubbee.com/four-eyes/)<br>
