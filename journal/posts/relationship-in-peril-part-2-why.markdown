@@ -32,7 +32,7 @@ Really, how could there be?  To me, it alone expressed the full range of everyth
     "Why did I hurt Eiren like this?"
     "Why would I say that knowing it could literally kill Eiren?"
     "Why is this happening to me?"
-    "Why is this happening to **us**?"
+    "Why is this happening to us?"
 
 I was asking myself something inherently existential, because all of my questions were the same thing and ultimately had the same answer.  "Why?" alone was enough.
 
