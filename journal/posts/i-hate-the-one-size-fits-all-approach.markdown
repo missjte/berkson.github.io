@@ -11,7 +11,7 @@ And I am fucking sick and tired of opening a question (from anywhere.  Twitter, 
 
 It **actually** enrages me.
 
-No, I don't hate the answer if it sends you to a resource.  I don't hate the answer if it's generally good advice and well intentioned, and thought out.  The answer could be fucking wrong and I'd still respect it.
+No, I don't hate the answer if it sends you to a resource.  I don't hate the answer if it's generally good advice, well intentioned, and thought out.  The answer could be fucking wrong and I'd still respect it.
 
 I hate the answer when it's blindly good advice and stated as the Lord's holy scripture in lieu of actually taking the time to examine what is being asked and the reasons behind their asking.  I mean, holy fuck, look:  I know that tens of thousands of people ask some sort of *"How do I do the BDSM with my partner"*?  I know that, after a while, it gets annoying.  Or boring.  Or repetitive.
 
