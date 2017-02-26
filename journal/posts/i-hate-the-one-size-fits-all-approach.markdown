@@ -41,8 +41,11 @@ It's just *so* much more likely that you'll respect that people have different o
 
 Think about what you're saying before you pass anything off as fact and law when it comes to someones relationship, their kink, their life.
 
-"*A slave is not a submissive! A slave has no rights!*" &mdash; YOUR STATEMENT, MAYBE.<br>
-"*A slave is a beautiful unicorn that loves his Mistress and fairies!*" &mdash; MY STATEMENT, PROBABLY.
+"*A slave is not a submissive! A slave has no rights!*"<br>
+&mdash; YOUR STATEMENT, MAYBE.
+
+"*A slave is a beautiful unicorn that loves his Mistress and fairies!*"<br>
+&mdash; MY STATEMENT, PROBABLY.
 
 Fuck, the point I want to get to in this post is this:  If you assume that one size fits all for every single relationship, about every single part of it, you're just living in the wrong.  Relationships are a fluid, changing environment.  What works for some people will never work for others and vice-versa.
 
