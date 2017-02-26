@@ -5,9 +5,9 @@ synopsis: Fuck, the point I want to get to in this post is this:  If you assume 
 run-in: I've been particuarily
 ---
 
-I've been particularly ranty the past couple of weeks on Twitter and elsewhere, I know that, but it's not just me, to be completely honest, it's not Eiren either... We are just not couth people, it just ain't us, God damn it.
+I've been particularly ranty the past couple of weeks on Twitter and elsewhere, I know that... and it's not been just me, to be completely honest, it's been Eiren too... We are just not couth people.  It just ain't us, God damn it.
 
-And I am fucking sick and tired of opening a question (from anywhere.  Twitter, reddit, Fetlife) and seeing the cookie-cutter answer.
+And I am fucking sick and tired of opening a question (from anywhere.  Twitter, Reddit, FetLife) and seeing the cookie-cutter answer.
 
 It **actually** enrages me.
 
@@ -35,15 +35,17 @@ Look at me, I think I'm a slave.  I describe myself as Eiren's slave, I feel lik
 
 But what I think is slavery for me is just "basic submission" to another person, and they feel that, to them, "I'm not a slave."
 
-Well, la-dee-fucking-da, I don't give a shit.  I wouldn't change my definition for you, and you probably wouldn't change your definition for me.  Even if I explained it.  Even if I paid you.  And that's perfectly okay.  However, it's much more likely that you'd respect that people have different opinions about these things.
+Well, la-dee-fucking-da, I don't give a shit.  I wouldn't change my definition for you, and you probably wouldn't change your definition for me.  Even if I explained it.  Even if I paid you.  And that's perfectly okay.
 
-This by itself doesn't imply that you have to change your own, it just expresses my desire that people think.  Think about what you're saying before you pass anything off as fact and law when it comes to someones relationship, their kink, their life.
+It's just *so* much more likely that you'll respect that people have different opinions about these things, and this by itself doesn't imply that you have to change your own, it just expresses a desire that people **think**.
 
-"*A slave is not a submissive! A slave has no rights!*" << YOUR STATEMENT, MAYBE.<br>
-"*A slave is a beautiful unicorn that loves his Mistress and fairies!*" << MY STATEMENT, MAYBE.
+Think about what you're saying before you pass anything off as fact and law when it comes to someones relationship, their kink, their life.
+
+"*A slave is not a submissive! A slave has no rights!*" &mdash; YOUR STATEMENT, MAYBE.<br>
+"*A slave is a beautiful unicorn that loves his Mistress and fairies!*" &mdash; MY STATEMENT, PROBABLY.
 
 Fuck, the point I want to get to in this post is this:  If you assume that one size fits all for every single relationship, about every single part of it, you're just living in the wrong.  Relationships are a fluid, changing environment.  What works for some people will never work for others and vice-versa.
 
-It isn't wrong to believe that there are good practices and generally good advice for a majority of people.  In addition, it's not wrong for you to think that one word or symbol or gesture or (**insert other random relationship practice here**) should mean this and another should mean that, but the reality is that none of this will ever be set in stone.
+It isn't wrong to believe that there are good practices and generally good advice for a majority of people; In addition, it's not wrong for you to think that one word or symbol or gesture or (**insert other random relationship practice here**) should mean this and another should mean that, but the reality is that none of this will ever be set in stone.
 
 Bleh.
