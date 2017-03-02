@@ -7,10 +7,14 @@
     <link href="/feed.xml" rel="alternate" type="application/atom+xml">
     <link href="http://prickyourfinger.org{{url}}" rel="canonical">
     <meta charset="utf-8"> <!-- TODO: or do not set it and escape everything? -->
+    <meta name="author" content="Prick Your Finger">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site:id" content="@PrickYourFinger">
+    <meta name="twitter:title" content="{{title}}">
     {{if synopsis}}
     <meta name="description" content="{{synopsis}}">
+    <meta name="twitter:description" content="{{synopsis}}">
     {{end}}
-    <meta name="author" content="Prick Your Finger">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- TODO: is this still required in 2015? -->
     <script>
       (function(w, d, s, l, i) {

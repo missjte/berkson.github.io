@@ -11,7 +11,7 @@ One of my favourite things to do is move.
 
 That's a strange thing, I guess... The **act** of moving gives me anxiety, packing is stressful, and the logistics of traveling with so many things in some sort of boxed entropy is just a fucking nightmare.
 
-Still, there are things to be said about the experience and, for one, it's a bunch of time that I get to spend with Eiren!  If I've learned anything about moving, it's that there's always been stretches of uninterupted time spend very close to each other doing things that neither of us wanted to do... which leads to slacking off... which leads to fun.
+Still, there are things to be said about the experience and, for one, it's a bunch of time that I get to spend with Eiren!  If I've learned anything about moving, it's that there's always been stretches of uninterrupted time spend very close to each other doing things that neither of us wanted to do... which leads to slacking off... which leads to fun.
 
 But I guess the best part about moving is the adventure.
 
@@ -31,8 +31,8 @@ And I do.  And I guess this is where my sort of submission really shines, and wh
 
 There is no "*I want a turn!*" for me, though, because Eiren isn't going to drag me around.  If she's walking, I'm walking too.  If she wants to take the lead, you better believe that I'm right behind her, still pulling the wagon behind me in case she wants to rest...
 
-And this is a huge part of our lives.  Perhaps even the largest.  I make the big decisions, I have the big responsibility, and I'm held accountable for all of it from her.  I drag Eiren behind me like the servent of some regal Queen because, well, the Queen doesn't pull herself.
+And this is a huge part of our lives.  Perhaps even the largest.  I make the big decisions, I have the big responsibility, and I'm held accountable for all of it from her.  I drag Eiren behind me like the servant of some regal Queen because, well, the Queen doesn't pull herself.
 
 Eiren & I will be visiting Montréal over my birthday in late July, and this trip will be, in addition to quite a bit of fun, another business trip for me.  It will be my way of be determining if this is a place where we'd be comfortable living after my current work obligation is done in the next two years, and if so, making a plan of action that ultimately lands the both of us there together as quickly as possible.
 
-And so I have this wonderful oppertunity to continue this cycle again, to start it up after three years of stagnation in my dragging duties to take us on another adventure, to be Eiren's submissive, and to ultimately make her happy.
+And so I have this wonderful opportunity to continue this cycle again, to start it up after three years of stagnation in my dragging duties to take us on another adventure, to be Eiren's submissive, and to ultimately make her happy.
