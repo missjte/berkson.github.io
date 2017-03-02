@@ -5,9 +5,9 @@ synopsis: And this is a huge part of our lives.  Perhaps even the largest.  I ma
 run-in: One of my
 ---
 
-![Let's go this way!](http://prickyourfinger.org/images/2017-03-01-wagon.jpg)
-
 One of my favourite things to do is move.
+
+![Let's go this way](http://prickyourfinger.org/images/2017-03-01-wagon.jpg)
 
 That's a strange thing, I guess... The **act** of moving gives me anxiety, packing is stressful, and the logistics of traveling with so many things in some sort of boxed entropy is just a fucking nightmare.
 
