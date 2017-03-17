@@ -28,3 +28,4 @@ $mozjpeg 88.0 resized/HEADER-teachers.jpg > compressed/HEADER-teachers.jpg
 $mozjpeg 88.0 resized/2015-11-15-sinful-sunday.jpg > compressed/2015-11-15-sinful-sunday.jpg
 $mozjpeg 88.0 resized/Sex-is-my-new-hobby-HEADER.jpg > compressed/Sex-is-my-new-hobby-HEADER.jpg
 $mozjpeg 88.0 resized/2017-03-01-wagon.jpg > compressed/2017-03-01-wagon.jpg
+$mozjpeg 88.0 resized/Steeled-Snake-HEader-300x225.jpg > compressed/Steeled-Snake-HEader-300x225.jpg
